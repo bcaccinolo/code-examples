@@ -5,14 +5,14 @@ require 'benchmark'
 
 class TestBenchmark < Minitest::Test
 
-  def setup
-    @ars = []
-    (1..4).each{ @ars.push([]) }
-    max = 500000
-    (1..max).each do |i|
-      @ars.each{|ar| ar.push(Kernel.rand(max)) }
-    end
-  end
+    def setup
+        source = []
+        max = 500000
+        for i in range(max):
+
+
+
+
 
   def test_benchmark
     Benchmark.bm do |b|
