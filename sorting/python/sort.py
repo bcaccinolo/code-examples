@@ -2,6 +2,7 @@ import sys
 
 sys.setrecursionlimit(50000000)
 
+
 class QuickSort(object):
 
     def __init__(self):
@@ -53,19 +54,42 @@ class MergeSort(object):
         return MergeSort.merge(MergeSort.sort(ar1), MergeSort.sort(ar2))
 
 
-# # Merge sort - Tri fusion
-# module MergeSort
+class TreeSort(object):
 
-#   # merge 2 ordered lists
-#   def self.mergeList(a, b)
-#     return b if a.empty?
-#     return a if b.empty?
-#     (a[0] <= b[0] ? [a.delete_at(0)] : [b.delete_at(0)]) + mergeList(a, b)
-#   end
+    @staticmethod
+    def sort(array):
+        return TreeSort.flatten(TreeSort.build_tree(array))
 
-#   def self.sort(ar)
-#     return ar if ar.size <= 1
-#     a = ar.slice!(0..(ar.size/2 - 1))
-#     mergeList(sort(a), sort(ar))
-#   end
-# end
+    @staticmethod
+    def build_tree(source):
+        array = source[:]  # we do a copy of the list
+
+        if len(array) == 0:
+            return None
+
+        root = array.pop()
+        tree = [None, root, None]
+
+        for e in array:
+            tree = TreeSort.add_elem(tree, e)
+
+        return tree
+
+    @staticmethod
+    def add_elem(tree, elem):
+        if not tree:
+            return [None, elem, None]
+
+        if elem >= tree[1]:
+            return [tree[0], tree[1], TreeSort.add_elem(tree[2], elem)]
+        else:
+            return [TreeSort.add_elem(tree[0], elem), tree[1], tree[2]]
+
+    @staticmethod
+    def flatten(tree):
+        if tree is None:
+            return []
+
+        return TreeSort.flatten(tree[0]) + [tree[1]] + TreeSort.flatten(tree[2])
+
+
