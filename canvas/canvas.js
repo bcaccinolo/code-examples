@@ -17,8 +17,6 @@ window.onload = function()
 
     document.ctx = ctx;
 
-    //C'est ici que l'on placera tout le code servant à nos dessins.
-
     function draw() {
         ctx = document.ctx;
         for (var i = 0; i < 3; i++) {
@@ -55,18 +53,16 @@ window.onload = function()
       position = 100;
 
       function animate() {
-        // ctx = document.ctx;
 
-        ctx.clearRect(-ctx_width/2, -ctx_height/2, 500,500);
-
-        // Move a rectangle
-        // ctx.clearRect(5, position - 10, width, height);
-        // ctx.fillRect(5, position, width, height);
-        // position = position + 10;
+        // ctx.clearRect(-ctx_width/2, -ctx_height/2, 500,500);
+        // creation d un effet de degrader
+        ctx.fillStyle = 'rgba(255, 255, 255, 0.4)';
+        ctx.fillRect(-canvas.width/2, -canvas.height/2, canvas.width, canvas.height);
 
         // Rotate a Rectangle
+        ctx.fillStyle = 'rgba(32, 179, 32, 1)';
         ctx.fillRect(-width/2, -height/2, width, height);
-        ctx.rotate(Math.PI/5);
+        ctx.rotate(Math.PI/15);
 
         console.log('position: ' + position );
 
