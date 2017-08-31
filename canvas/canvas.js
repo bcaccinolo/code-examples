@@ -32,26 +32,30 @@ window.onload = function()
         }
       }
 
-      draw(document.ctx);
 
+      ctx_width = 500;
+      ctx_height = 500;
+      ctx.translate(ctx_width/2, ctx_height/2);
+
+      width = 100;
+      height = 200;
       position = 100;
 
       function animate() {
-
         ctx = document.ctx;
 
+        ctx.clearRect(-ctx_width/2, -ctx_height/2, 500,500);
+
         // Move a rectangle
-        width = 100;
-        height = 100;
-        ctx.clearRect(5, position - 10, width, height);
-        ctx.fillRect(5, position, width, height);
-        position = position + 10;
+        // ctx.clearRect(5, position - 10, width, height);
+        // ctx.fillRect(5, position, width, height);
+        // position = position + 10;
 
         // Rotate a Rectangle
+        ctx.fillRect(-width/2, -height/2, width, height);
+        ctx.rotate(Math.PI/5);
 
-        console.log('coucou' + position );
-
-
+        console.log('position: ' + position );
       }
 
       setInterval(animate, 1000);
