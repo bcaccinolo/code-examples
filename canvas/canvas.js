@@ -32,6 +32,19 @@ window.onload = function()
         }
       }
 
+      var ball = {
+        x: 100,
+        y: 100,
+        radius: 25,
+        color: 'blue',
+        draw: function() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+          ctx.closePath();
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+      };
 
       ctx_width = 500;
       ctx_height = 500;
@@ -56,9 +69,12 @@ window.onload = function()
         ctx.rotate(Math.PI/5);
 
         console.log('position: ' + position );
+
+        window.requestAnimationFrame(animate);
       }
 
-      setInterval(animate, 1000);
+    //   setInterval(animate, 1000);
+    animate();
 
 
 }
