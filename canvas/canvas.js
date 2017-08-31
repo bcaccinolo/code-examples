@@ -55,7 +55,7 @@ window.onload = function()
       position = 100;
 
       function animate() {
-        ctx = document.ctx;
+        // ctx = document.ctx;
 
         ctx.clearRect(-ctx_width/2, -ctx_height/2, 500,500);
 
@@ -70,11 +70,28 @@ window.onload = function()
 
         console.log('position: ' + position );
 
-        window.requestAnimationFrame(animate);
+        raf =window.requestAnimationFrame(animate);
       }
 
+
+    var raf;
+
+    canvas.addEventListener('mouseover', function(e) {
+        console.log('je suis dans le canvas');
+
+        raf = window.requestAnimationFrame(animate);
+    });
+
+    canvas.addEventListener('mouseout', function(e) {
+        console.log('sorti du canvas ' + raf);
+
+
+        window.cancelAnimationFrame(raf);
+    });
+
+
     //   setInterval(animate, 1000);
-    animate();
+    // animate();
 
 
 }
