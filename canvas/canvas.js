@@ -1,24 +1,18 @@
 window.onload = function()
 {
     var canvas = document.getElementById('mon_canvas');
-    if(!canvas)
-        {
+    if(!canvas) {
         alert("Impossible de récupérer le canvas");
         return;
     }
 
     var ctx = canvas.getContext('2d');
-    if(!ctx)
-        {
+    if(!ctx) {
         alert("Impossible de récupérer le context du canvas");
         return;
     }
 
-
-    document.ctx = ctx;
-
     function draw() {
-        ctx = document.ctx;
         for (var i = 0; i < 3; i++) {
             for (var j = 0; j < 3; j++) {
                 ctx.save();
@@ -50,20 +44,20 @@ window.onload = function()
         draw: function() {
             // console.log(' ' + this.x + ' ' + this.y + ' ' + this.width + ' ' + this.height);
             ctx.fillStyle = 'rgba(32, 179, 32, 1)';
-            ctx.fillRect(this.x, this.y, this.width, this.height);
+            ctx.fillRect(this.x - this.width/2, this.y - this.height/2, this.width, this.height);
         }
     };
 
     // INIT ==========================================
     // on centre les coordonnées
     ctx.translate(canvas.width/2, canvas.height/2);
-    rectangle.x = - rectangle.width/2;
-    rectangle.y = - rectangle.height/2;
+    rectangle.x = 0;
+    rectangle.y = 0;
 
-    var width = 100;
-    var height = 200;
-    var position = 100;
     var raf;
+    var cursor_x = document.getElementById('cursor-x');
+    var cursor_y = document.getElementById('cursor-y');
+
 
     function animate() {
 
@@ -82,6 +76,13 @@ window.onload = function()
         raf = window.requestAnimationFrame(animate);
     }
 
+    canvas.addEventListener('mousemove', function(e){
+
+        console.log(e);
+        cursor_x.innerText = e.x;
+        cursor_y.innerText = e.y;
+    });
+
     canvas.addEventListener('mouseover', function(e) {
         console.log('je suis dans le canvas');
 
@@ -90,7 +91,6 @@ window.onload = function()
 
     canvas.addEventListener('mouseout', function(e) {
         console.log('sorti du canvas ' + raf);
-
 
         window.cancelAnimationFrame(raf);
     });
