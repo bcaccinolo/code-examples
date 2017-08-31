@@ -7,13 +7,54 @@ window.onload = function()
             return;
         }
 
-    var context = canvas.getContext('2d');
-        if(!context)
+    var ctx = canvas.getContext('2d');
+        if(!ctx)
         {
             alert("Impossible de récupérer le context du canvas");
             return;
         }
 
 
+    document.ctx = ctx;
+
     //C'est ici que l'on placera tout le code servant à nos dessins.
+
+    function draw() {
+        ctx = document.ctx;
+        for (var i = 0; i < 3; i++) {
+          for (var j = 0; j < 3; j++) {
+            ctx.save();
+            ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+            ctx.translate(10 + j * 50, 10 + i * 50);
+            ctx.fillRect(0, 0, 25, 25);
+            ctx.restore();
+          }
+        }
+      }
+
+      draw(document.ctx);
+
+      position = 100;
+
+      function animate() {
+
+        ctx = document.ctx;
+
+        // Move a rectangle
+        width = 100;
+        height = 100;
+        ctx.clearRect(5, position - 10, width, height);
+        ctx.fillRect(5, position, width, height);
+        position = position + 10;
+
+        // Rotate a Rectangle
+
+        console.log('coucou' + position );
+
+
+      }
+
+      setInterval(animate, 1000);
+
+
 }
