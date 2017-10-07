@@ -1,0 +1,20 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+div.App {
+  display: flex;
+  flex-direction: row;
+}
+
+div.menu {
+  padding: 5px;
+  border: 1px solid blue;
+}
+
+div.main {
+  padding: 5px;
+  border: 1px solid red;
+}
