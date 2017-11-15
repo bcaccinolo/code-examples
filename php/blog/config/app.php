@@ -177,6 +177,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /*
+         * Service Providers perso
+         */
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*

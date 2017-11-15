@@ -11,7 +11,14 @@
 |
 */
 
-Route::get('/', function () {
+use Illuminate\Http\Request;
+
+Route::get('/', function (Request $request) {
+
+    print($request->url());
+
+    eval(\Psy\sh());
+
     return view('welcome');
 });
 
