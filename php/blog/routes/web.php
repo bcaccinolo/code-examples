@@ -12,8 +12,19 @@
 */
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 Route::get('/', function (Request $request) {
+
+        print($request->url());
+
+        Log::info('Coucou le monde');
+
+        return view('welcome');
+    });
+
+
+Route::get('/{test}', function (Request $request) {
 
     print($request->url());
 
@@ -21,6 +32,7 @@ Route::get('/', function (Request $request) {
 
     return view('welcome');
 });
+
 
 Route::post('/email', function() {
     return view('about');
