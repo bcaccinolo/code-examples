@@ -14,7 +14,7 @@ class EmailController extends Controller
      */
     public function index()
     {
-        //
+        return "coucou le monde";
     }
 
     /**

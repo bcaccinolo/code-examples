@@ -1,5 +1,7 @@
 <?php
 
+// use App\Http\Controllers\EmailController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +13,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'EmailController@index');
+

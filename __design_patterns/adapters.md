@@ -2,6 +2,12 @@
 
 Blog resource: https://www.sitepoint.com/using-and-testing-the-adapter-design-pattern/
 
+## When to use - What it solves
+
+
+
+## Example
+
 ```ruby
 class Animal
   def speak(kind)
