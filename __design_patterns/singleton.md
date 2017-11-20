@@ -2,6 +2,10 @@
 
 Blog resource: https://dalibornasevic.com/posts/9-ruby-singleton-pattern
 
+## When to use - What it solves
+
+
+
 # Ruby
 Ruby has a module to ease them implementation of singleton classes.
 

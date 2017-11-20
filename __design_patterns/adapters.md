@@ -4,7 +4,15 @@ Blog resource: https://www.sitepoint.com/using-and-testing-the-adapter-design-pa
 
 ## When to use - What it solves
 
+It makes the code more flexible.
 
+## Concrete speaking example
+
+i.e. you have an object connecting to the DB. you create an adapter so you can have a :
+ - DbAdapter for production
+ - TestAdapter for testing
+
+Simple and Flexible ;0)
 
 ## Example
 
