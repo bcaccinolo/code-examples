@@ -14,4 +14,5 @@
 */
 
 Route::get('/', 'EmailController@index');
+Route::post('/', 'EmailController@create')->name('email.create');
 

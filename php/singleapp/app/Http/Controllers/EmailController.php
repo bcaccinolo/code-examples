@@ -14,7 +14,7 @@ class EmailController extends Controller
      */
     public function index()
     {
-        return "coucou le monde";
+        return view('email/index');
     }
 
     /**
@@ -24,7 +24,7 @@ class EmailController extends Controller
      */
     public function create()
     {
-        //
+        return("create email");
     }
 
     /**
