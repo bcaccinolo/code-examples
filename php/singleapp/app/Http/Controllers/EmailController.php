@@ -22,9 +22,15 @@ class EmailController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return("create email");
+        $email = new \App\Email();
+        $email->email = $request->input('email');
+        $email->save();
+
+        \Session::now('flash_message','email saved');
+
+        return view('email/index');
     }
 
     /**
