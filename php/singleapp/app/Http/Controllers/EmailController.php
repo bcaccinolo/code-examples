@@ -14,7 +14,7 @@ class EmailController extends Controller
      */
     public function index()
     {
-        return view('email/index');
+        return view('email/index2');
     }
 
     /**
@@ -30,7 +30,7 @@ class EmailController extends Controller
 
         \Session::now('flash_message','email saved');
 
-        return view('email/index');
+        return view('email/index2');
     }
 
     /**
