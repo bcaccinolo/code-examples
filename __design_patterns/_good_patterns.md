@@ -4,6 +4,8 @@
  - Basic human decency
 
 
+
+
 JS: http://www.dofactory.com/javascript/observer-design-pattern
 
 Python: http://www.giantflyingsaucer.com/blog/?p=5117

@@ -6,7 +6,7 @@ Source : https://github.com/nslocum/design-patterns-in-ruby#observer
 
 ## Ruby
 
-Like for the Singleton, ruby has a Observer module to handle this pattern.
+As the Singleton, Observer has a ruby module to handling this pattern.
 
 > http://ruby-doc.org/stdlib-2.4.2/libdoc/observer/rdoc/Observable.html
 
@@ -16,13 +16,12 @@ Observers implement the interface:
 def update(...)
 ```
 
-The Observed class, the subject registeres observers like this:
+The Observed class also callled subject registers observers like this:
 ```ruby
 ticker.add_observer(myListenerInstance)
 ```
 
-
-It contains a clean example:
+The ruby doc contains a clean example:
 
 ```ruby
 require "observer"
@@ -40,9 +39,9 @@ class Ticker          ### Periodically fetch a stock price.
       price = Price.fetch(@symbol)
       print "Current price: #{price}\n"
       if price != last_price
-        changed                 # notify observers
+        changed                   # notify that the state has changed
         last_price = price
-        notify_observers(Time.now, price)
+        notify_observers(Time.now, price) # notify observers
       end
       sleep 1
     end
