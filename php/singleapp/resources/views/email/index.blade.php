@@ -52,11 +52,45 @@
       </div>
   @endif
 
-  <form action="{{route('email.create')}}" method="post">
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">Lorem Ipsum</div>
+    <div class="col-md-6">
+
+    <form action="{{route('email.create')}}" method="post">
     {{ csrf_field() }}
     <input type="text" name='email'>
     <button type="submit" class="btn btn-success navbar-btn">Sign in</button>
   </form>
+
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">Lorem Ipsum</div>
+    <div class="col-md-6">
+
+    <form action="{{route('email.create')}}" method="post">
+      {{ csrf_field() }}
+      <div class="input-group">
+        <span class="input-group-addon" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Email here " aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group">
+        <!-- Indicates a successful or positive action -->
+        <button type="button" class="btn btn-success">Success</button>
+      </div>
+
+    </form>
+
+    </div>
+  </div>
+</div>
+
+
 
 </body>
 </html>
