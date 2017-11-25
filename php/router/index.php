@@ -1,14 +1,13 @@
 <?php
 //
 // MINI ROUTER
-//  - pour le momment on ne gère pas les paramètres.
+//  - Pour le momment on ne gère pas les paramètres.
+//    Donc on fait un matching basic.
 //
 
-// fonction qui affiche l'url
-function showData($method = 'GET', $path = '/')
+function printv($str)
 {
-    print('<pre>' . var_export($_SERVER, true) . '</pre>');
-
+    print('<pre>' . var_export($str, true) . '</pre>');
 }
 
 class Router {
@@ -32,8 +31,6 @@ class Router {
 
     function listen()
     {
-        showData($_SERVER['REQUEST_METHOD'], $_SERVER['REQUEST_URI']);
-
         $method = strtoupper($_SERVER['REQUEST_METHOD']);
         $possible_routes = $this->routes[$method];
 
@@ -41,7 +38,11 @@ class Router {
 
         foreach($possible_routes as $route) {
             print("resonse from match");
-            print $route->match($path);
+            if ($route->match($path) == true)
+            {
+                call_user_func($route->fun);
+                break;
+            }
         }
 
         print('<pre>' . var_export($possible_routes, true) . '</pre>');
@@ -56,14 +57,18 @@ class Route {
 
     function __construct($path, Closure $fun)
     {
-        echo("constructeur");
+        printv("constructeur");
         $this->path = $path;
         $this->fun = $fun;
     }
 
     function match($path)
     {
-        print("false !!! ");
+        if ($this->path == $path) {
+            printv('true ');
+            return true;
+        }
+        printv("false !!! ");
         return false;
     }
 }
@@ -73,7 +78,7 @@ class GET extends Route {
     function __construct($path, $fun)
     {
         parent::__construct($path, $fun);
-        print('creating a GET route');
+        printv('creating a GET route');
     }
 
 }
@@ -83,7 +88,7 @@ class POST extends Route {
     function __construct($path, $fun)
     {
         parent::__construct($path, $fun);
-        print('creating a POST route');
+        printv('creating a POST route');
     }
 
 }
@@ -93,22 +98,23 @@ class PUT extends Route {
     function __construct($path, $fun)
     {
         parent::__construct($path, $fun);
-        print('creating a PUT route');
+        printv('creating a PUT route');
     }
 
 }
 
 $router = new Router();
 
-// GET @ /  => echo "this is the root"
 $router->add_route('GET', '/', function() {
-    echo('this is the root');
+    printv('this is the root');
+});
+
+$router->add_route('GET', '/', function() {
+    printv('this is the root 2');
 });
 
 $router->add_route('PUT', '/', function() {
-    echo('this is the root');
+    printv('this is the root');
 });
-
-print('<pre>' . var_export($router->routes, true) . '</pre>');
 
 $router->listen();
