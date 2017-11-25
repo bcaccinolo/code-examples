@@ -4,6 +4,11 @@
 //  - Pour le momment on ne gère pas les paramètres.
 //    Donc on fait un matching basic.
 //
+//  - >>> User PhpUnit pour les tests.
+//
+//  - Bon maintenant, il faut gérer les variables.
+//    > Pour cela, mettre en place des tests unitaires.
+//
 
 function printv($str)
 {
@@ -57,19 +62,21 @@ class Route {
 
     function __construct($path, Closure $fun)
     {
-        printv("constructeur");
         $this->path = $path;
         $this->fun = $fun;
     }
 
     function match($path)
     {
-        if ($this->path == $path) {
-            printv('true ');
-            return true;
-        }
-        printv("false !!! ");
-        return false;
+        $regexp_path = preg_replace ('#:[a-z-_]+#' , '[a-zA-Z0-9]+' , $this->path);
+
+        // print("\nReturned value from preg_filter: " . $regexp_path);
+        // print("\nInitial path " . $this->path);
+        // print("\npath after filtering: " . $regexp_path);
+        // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . preg_match('#'.$regexp_path.'#', $path) );
+        // print("\n");
+
+        return(preg_match('#^'.$regexp_path.'$#', $path) == 1);
     }
 }
 
@@ -78,7 +85,6 @@ class GET extends Route {
     function __construct($path, $fun)
     {
         parent::__construct($path, $fun);
-        printv('creating a GET route');
     }
 
 }
@@ -88,7 +94,6 @@ class POST extends Route {
     function __construct($path, $fun)
     {
         parent::__construct($path, $fun);
-        printv('creating a POST route');
     }
 
 }
@@ -98,23 +103,8 @@ class PUT extends Route {
     function __construct($path, $fun)
     {
         parent::__construct($path, $fun);
-        printv('creating a PUT route');
     }
 
 }
 
-$router = new Router();
 
-$router->add_route('GET', '/', function() {
-    printv('this is the root');
-});
-
-$router->add_route('GET', '/', function() {
-    printv('this is the root 2');
-});
-
-$router->add_route('PUT', '/', function() {
-    printv('this is the root');
-});
-
-$router->listen();
