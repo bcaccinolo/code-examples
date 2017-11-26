@@ -66,6 +66,9 @@ class Route {
         $this->fun = $fun;
     }
 
+    // Returns:
+    // if it matches, it returns an array with the matching parameters
+    // it it does not match, it returns false
     function match($path)
     {
         $regexp_path = preg_replace ('#:[a-z-_]+#' , '([a-zA-Z0-9]+)' , $this->path);
@@ -82,6 +85,12 @@ class Route {
             return $matches;
         }
         return false;
+    }
+
+    // It calls the method with the given parameters
+    function call($params)
+    {
+        return call($this->fun, $params);
     }
 }
 

@@ -53,4 +53,14 @@ final class RouteTest extends TestCase
         $this->assertFalse($router->match('/user/12/edit'));
     }
 
+    public function testCallTheFunctionWithoutParameter()
+    {
+
+    }
+
+    public function testCallTheFunctionWithParameters()
+    {
+
+    }
+
 }
