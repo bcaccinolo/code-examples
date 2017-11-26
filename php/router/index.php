@@ -23,14 +23,14 @@ class Router {
         print('adding a route');
         switch (trim($method)) {
             case 'GET':
-                array_push($this->routes['GET'], new GET($path, $fun));
-                break;
+            array_push($this->routes['GET'], new GET($path, $fun));
+            break;
             case 'POST':
-                new POST($path, $fun);
-                break;
+            new POST($path, $fun);
+            break;
             case 'PUT':
-                array_push($this->routes['PUT'], new PUT($path, $fun));
-                break;
+            array_push($this->routes['PUT'], new PUT($path, $fun));
+            break;
         }
     }
 
@@ -68,15 +68,20 @@ class Route {
 
     function match($path)
     {
-        $regexp_path = preg_replace ('#:[a-z-_]+#' , '[a-zA-Z0-9]+' , $this->path);
-
+        $regexp_path = preg_replace ('#:[a-z-_]+#' , '([a-zA-Z0-9]+)' , $this->path);
         // print("\nReturned value from preg_filter: " . $regexp_path);
         // print("\nInitial path " . $this->path);
         // print("\npath after filtering: " . $regexp_path);
         // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . preg_match('#'.$regexp_path.'#', $path) );
         // print("\n");
+        $matches = array();
+        $result = preg_match('#^'.$regexp_path.'$#', $path, $matches);
 
-        return(preg_match('#^'.$regexp_path.'$#', $path) == 1);
+        if ($result == 1)
+        {
+            return $matches;
+        }
+        return false;
     }
 }
 

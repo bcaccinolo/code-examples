@@ -18,7 +18,7 @@ final class RouteTest extends TestCase
         });
 
         $this->assertFalse($router->match('/not-good'));
-        $this->assertTrue($router->match('/'));
+        $this->assertTrue(is_array($router->match('/')));
     }
 
     public function testMatchForSimpleUrl2()
@@ -28,7 +28,7 @@ final class RouteTest extends TestCase
         });
 
         $this->assertFalse($router->match('/not-good'));
-        $this->assertTrue($router->match('/about'));
+        $this->assertTrue(is_array($router->match('/about')));
     }
 
     public function testMatchWithParameter()
@@ -38,7 +38,7 @@ final class RouteTest extends TestCase
         });
 
         $this->assertFalse($router->match('/user'));
-        $this->assertTrue($router->match('/user/12'));
+        $this->assertTrue(is_array($router->match('/user/12')));
         $this->assertFalse($router->match('/user/12/edit'));
     }
 
@@ -49,7 +49,7 @@ final class RouteTest extends TestCase
         });
 
         $this->assertFalse($router->match('/user/book/12'));
-        $this->assertTrue($router->match('/user/12/book/42'));
+        $this->assertTrue(is_array($router->match('/user/12/book/42')));
         $this->assertFalse($router->match('/user/12/edit'));
     }
 
