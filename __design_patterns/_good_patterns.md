@@ -8,8 +8,10 @@
 
 JS: http://www.dofactory.com/javascript/observer-design-pattern
 
-Python: http://www.giantflyingsaucer.com/blog/?p=5117
-
 https://martinfowler.com/eaaDev/DomainEvent.html
 
 https://practicingruby.com/articles/structural-design-patterns
+
+
+https://practicingruby.com/articles/creational-design-patterns
+
