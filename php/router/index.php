@@ -1,13 +1,18 @@
 <?php
 //
 // MINI ROUTER
-//  - Pour le momment on ne gère pas les paramètres.
-//    Donc on fait un matching basic.
 //
-//  - >>> User PhpUnit pour les tests.
+//  - DONE Mise en place d'une Route
 //
-//  - Bon maintenant, il faut gérer les variables.
-//    > Pour cela, mettre en place des tests unitaires.
+//  - DONE Donc on fait un matching basic.
+//
+//  - DONE User PhpUnit pour les tests.
+//
+//  - DONE il faut gérer les variables.
+//
+//  - Trouver un bon format et bien documenter. Le tout.
+//
+//  - tester et mettre en place le Router qui regroupe et gère les Routes
 //
 
 function printv($str)
@@ -77,8 +82,9 @@ class Route {
         // print("\npath after filtering: " . $regexp_path);
         // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . preg_match('#'.$regexp_path.'#', $path) );
         // print("\n");
-        $matches = array();
         $result = preg_match('#^'.$regexp_path.'$#', $path, $matches);
+        // removing the first value of the $matches cause it's not a match.
+        array_splice($matches, 0, 1);
 
         if ($result == 1)
         {
@@ -90,7 +96,7 @@ class Route {
     // It calls the method with the given parameters
     function call($params)
     {
-        return call($this->fun, $params);
+        return call_user_func_array($this->fun, $params);
     }
 }
 

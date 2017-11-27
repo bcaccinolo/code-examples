@@ -7,60 +7,73 @@ use PHPUnit\Framework\TestCase;
 // ./vendor/bin/phpunit --bootstrap index.php tests/routeTest.php --testdox
 
 /**
- * @covers Route
- */
+* @covers Route
+*/
 final class RouteTest extends TestCase
 {
     public function testMatchForSimpleUrl()
     {
-        $router = new GET('/', function(){
+        $route = new GET('/', function(){
             return "get root";
         });
 
-        $this->assertFalse($router->match('/not-good'));
-        $this->assertTrue(is_array($router->match('/')));
+        $this->assertFalse($route->match('/not-good'));
+        $this->assertTrue(is_array($route->match('/')));
     }
 
     public function testMatchForSimpleUrl2()
     {
-        $router = new GET('/about', function(){
+        $route = new GET('/about', function(){
             return "get about page";
         });
 
-        $this->assertFalse($router->match('/not-good'));
-        $this->assertTrue(is_array($router->match('/about')));
+        $this->assertFalse($route->match('/not-good'));
+        $this->assertTrue(is_array($route->match('/about')));
     }
 
     public function testMatchWithParameter()
     {
-        $router = new GET('/user/:id', function(){
+        $route = new GET('/user/:id', function(){
             return "get user";
         });
 
-        $this->assertFalse($router->match('/user'));
-        $this->assertTrue(is_array($router->match('/user/12')));
-        $this->assertFalse($router->match('/user/12/edit'));
+        $this->assertFalse($route->match('/user'));
+        $this->assertFalse($route->match('/user/12/edit'));
+
+        $this->assertTrue(is_array($route->match('/user/12')));
+        $this->assertEquals($route->match('/user/12'), ['12']);
     }
 
     public function testMatchWith2Parameters()
     {
-        $router = new GET('/user/:id/book/:book_id', function(){
+        $route = new GET('/user/:id/book/:book_id', function(){
             return "get user";
         });
 
-        $this->assertFalse($router->match('/user/book/12'));
-        $this->assertTrue(is_array($router->match('/user/12/book/42')));
-        $this->assertFalse($router->match('/user/12/edit'));
+        $this->assertFalse($route->match('/user/book/12'));
+        $this->assertFalse($route->match('/user/12/edit'));
+
+        $this->assertTrue(is_array($route->match('/user/12/book/42')));
+        $this->assertEquals($route->match('/user/12/book/42'), ['12', '42']);
     }
 
     public function testCallTheFunctionWithoutParameter()
     {
+        $route = new GET('/user/:id/book/:book_id', function(){
+            return "get user book";
+        });
 
+        $this->assertEquals($route->call([]), "get user book");
     }
 
     public function testCallTheFunctionWithParameters()
     {
+        $route = new GET('/user/:id/book/:book_id', function($id, $book_id) {
+            return "get user " . $id . " book " . $book_id;
+        });
+        $params_from_url = $route->match('/user/12/book/42');
 
+        $this->assertEquals($route->call($params_from_url), "get user 12 book 42");
     }
 
 }

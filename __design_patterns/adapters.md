@@ -6,6 +6,16 @@ Blog resource: https://www.sitepoint.com/using-and-testing-the-adapter-design-pa
 
 It makes the code more flexible.
 
+## Testing the adapter
+
+De façon la plus simple, tu as une classe Mère et une adapter appelée par la classe mère.
+
+Donc il faut tester, les 2 classes:
+ - la classe Mère : il faut tester que le système d'adapter fonctionne comme il faut. Pour cela il serait bien d'avoir une
+   classe Null qui simule un adapter de base et qui retourne des données simples à tester.
+ - la classe Adapter : on l'appelle avec la classe Mère et on valide que les méthodes de la classe Adapter sont bien appelées.
+
+
 ## Concrete speaking example
 
 i.e. you have an object connecting to the DB. you create an adapter so you can have a :
