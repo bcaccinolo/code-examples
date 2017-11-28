@@ -17,11 +17,12 @@ final class RouteTest extends TestCase
             return "get root";
         });
 
-        $this->assertFalse($route->match('/not-good'));
+        $this->assertFalse(is_array($route->match('/not-good')));
+        $this->assertFalse($route->match('/user/12/article'));
         $this->assertTrue(is_array($route->match('/')));
     }
 
-    public function testMatchForSimpleUrl2()
+    public function testMatchForSimpleUrddddddddl2()
     {
         $route = new GET('/about', function(){
             return "get about page";

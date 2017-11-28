@@ -38,25 +38,6 @@ class Router {
         }
     }
 
-    function listen()
-    {
-        $method = strtoupper($_SERVER['REQUEST_METHOD']);
-        $possible_routes = $this->routes[$method];
-
-        $path = trim($_SERVER['REQUEST_URI']);
-
-        foreach($possible_routes as $route) {
-            print("resonse from match");
-            if ($route->match($path) == true)
-            {
-                call_user_func($route->fun);
-                break;
-            }
-        }
-
-        print('<pre>' . var_export($possible_routes, true) . '</pre>');
-    }
-
     function match_and_exec($method, $path)
     {
         $possible_routes = $this->routes[$method];
@@ -65,11 +46,19 @@ class Router {
             $result = $route->match($path);
             if (is_array($result) == false)
             {
-                break;
+                continue;
             }
             return $route->call($result);
         }
         return false;
+    }
+
+    function listen()
+    {
+        $method = strtoupper($_SERVER['REQUEST_METHOD']);
+        $path = trim($_SERVER['REQUEST_URI']);
+
+        print $this->match_and_exec($method, $path);
     }
 }
 
@@ -93,9 +82,11 @@ class Route {
         // print("\nReturned value from preg_filter: " . $regexp_path);
         // print("\nInitial path " . $this->path);
         // print("\npath after filtering: " . $regexp_path);
-        // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . preg_match('#'.$regexp_path.'#', $path, $matches) );
-        // print("\n");
+
         $result = preg_match('#^'.$regexp_path.'$#', $path, $matches);
+        // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . $result);
+        // print("\n");
+
         // removing the first value of the $matches cause it's not a match.
         array_splice($matches, 0, 1);
 
@@ -141,3 +132,19 @@ class PUT extends Route {
 }
 
 
+
+// $router = new Router();
+
+// $router->add_route('GET', '/user', function(){
+//     return "this is the root";
+// });
+
+// $router->add_route('GET', '/user/:id/article', function($id){
+//     return "saving the article linked to the user id: " . $id;
+// });
+
+// $router->add_route('GET', '/update/:id', function($id){
+//     return "updating the article id: " . $id;
+// });
+
+// $router->listen();
