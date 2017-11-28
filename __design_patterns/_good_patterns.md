@@ -4,6 +4,8 @@
  - Basic human decency
 
 
+# Design Patterns for Human
+Best resource: https://github.com/kamranahmedse/design-patterns-for-humans
 
 
 JS: http://www.dofactory.com/javascript/observer-design-pattern
