@@ -25,13 +25,12 @@ class Router {
 
     function add_route($method, $path, $fun)
     {
-        print('adding a route');
         switch (trim($method)) {
             case 'GET':
             array_push($this->routes['GET'], new GET($path, $fun));
             break;
             case 'POST':
-            new POST($path, $fun);
+            array_push($this->routes['POST'], new GET($path, $fun));
             break;
             case 'PUT':
             array_push($this->routes['PUT'], new PUT($path, $fun));
@@ -57,8 +56,22 @@ class Router {
 
         print('<pre>' . var_export($possible_routes, true) . '</pre>');
     }
-}
 
+    function match_and_exec($method, $path)
+    {
+        $possible_routes = $this->routes[$method];
+        foreach($possible_routes as $route)
+        {
+            $result = $route->match($path);
+            if (is_array($result) == false)
+            {
+                break;
+            }
+            return $route->call($result);
+        }
+        return false;
+    }
+}
 
 class Route {
 
@@ -80,7 +93,7 @@ class Route {
         // print("\nReturned value from preg_filter: " . $regexp_path);
         // print("\nInitial path " . $this->path);
         // print("\npath after filtering: " . $regexp_path);
-        // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . preg_match('#'.$regexp_path.'#', $path) );
+        // print("\n>" . $regexp_path . "< >" . $path . "< match result : " . preg_match('#'.$regexp_path.'#', $path, $matches) );
         // print("\n");
         $result = preg_match('#^'.$regexp_path.'$#', $path, $matches);
         // removing the first value of the $matches cause it's not a match.
