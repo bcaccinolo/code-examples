@@ -23,7 +23,8 @@ final class RouterTest extends TestCase
         $router->add_route('PUT', '/update/:id', function($id){
             return "updating the article id: " . $id;
         });
-        $this->assertEquals($router->routes['GET'][0]->path, '/');
+        // we check the second one cause the first one is the /routes default route
+        $this->assertEquals($router->routes['GET'][1]->path, '/');
         $this->assertEquals($router->routes['POST'][0]->path, '/user/:id/article');
         $this->assertEquals($router->routes['PUT'][0]->path, '/update/:id');
     }

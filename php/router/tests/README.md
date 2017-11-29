@@ -1,7 +1,7 @@
 
  - done avoir le systeme qui tourne dans le navigateur.
 
- - avoir l'url '/routes' qui liste les routes existantes.
+ - done avoir l'url '/routes' qui liste les routes existantes.
 
  - pouvoir lancer tous les tests d'un coup.
 
