@@ -23,6 +23,26 @@ function printv($str)
 class Router {
     var $routes = ['GET' => [], 'PUT' => [], 'POST' => []];
 
+    function __construct()
+    {
+        $this->add_listing_routes();
+    }
+
+    function add_listing_routes()
+    {
+        $this->add_route('GET', '/routes', function(){
+            print "<h1>Routes</h1>";
+            foreach($this->routes as $method => $routes) {
+                print "<h3>".$method."</h3>";
+                print "<ul>";
+                foreach ($routes as $route) {
+                    print "<li>".$route->path."</li>";
+                }
+                print "</ul>";
+            }
+        });
+    }
+
     function add_route($method, $path, $fun)
     {
         switch (trim($method)) {
@@ -133,18 +153,22 @@ class PUT extends Route {
 
 
 
-// $router = new Router();
+$router = new Router();
 
-// $router->add_route('GET', '/user', function(){
-//     return "this is the root";
-// });
+$router->add_route('GET', '/', function(){
+    return "this is the root";
+});
 
-// $router->add_route('GET', '/user/:id/article', function($id){
-//     return "saving the article linked to the user id: " . $id;
-// });
+$router->add_route('GET', '/user/:id/article', function($id){
+    return "saving the article linked to the user id: " . $id;
+});
 
-// $router->add_route('GET', '/update/:id', function($id){
-//     return "updating the article id: " . $id;
-// });
+$router->add_route('GET', '/update/:id', function($id){
+    return "updating the article id: " . $id;
+});
 
-// $router->listen();
+$router->add_route('PUT', '/update/:id', function($id){
+    return "updating the article id: " . $id;
+});
+
+$router->listen();
