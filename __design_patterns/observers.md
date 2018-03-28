@@ -2,6 +2,14 @@
 
 ## Also known as publish/subscribe
 
+The observer pattern is for event driven programming.
+
+An object, called the subject, maintains a list of its dependents, called observers, and notifies them automatically of any state changes, usually by calling one of their methods.
+
+The Ruby Standard Library includes an Observable module that implements this pattern.
+
+It's also possible to use code blocks as observers. This isn't supported by the Observable module in the Ruby Standard Library, but it's easy to implement.
+
 Source : https://github.com/nslocum/design-patterns-in-ruby#observer
 
 ## Ruby
