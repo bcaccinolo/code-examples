@@ -22,11 +22,6 @@ def cleaner(line):
 new_lines = list(map(cleaner, filter(selector, lines)))
 list.sort(new_lines)
 
-for k, v in groupby(new_lines):
-    print("-------------------------")
-    print(k)
-    print(len(list(v)))
-
-stats = { k: len(list(v)) for k, v in groupby(new_lines)}
+stats = { k: len(list(v)) for k, v in groupby(new_lines) }
 
 print(stats)
