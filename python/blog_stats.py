@@ -2,6 +2,8 @@ import re
 import operator
 from itertools import *
 
+# quelques stats sur le blog symbioz
+
 # g '^author: ' > /tmp/out.txt
 path = '/tmp/out.txt'
 with open(path) as f:
