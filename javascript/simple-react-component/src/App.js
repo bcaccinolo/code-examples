@@ -7,17 +7,29 @@ function Coucou(props) {
   return <span>Coucou le monde {props.qui}</span>;
 }
 
+// Good default component
 // a class component
 class Coucou2 extends React.Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = {};
+
+    console.log('Current props');
+    console.log(props);
+  }
+
+  render = () => {
     return (
       <span>Coucou le monde 2</span>
     );
   }
+
+  componentDidMount = () => { }
 }
 
+
 class App extends Component {
-  render() {
+  render = () => {
     return (
       <div className="App">
         <div className="App-header">

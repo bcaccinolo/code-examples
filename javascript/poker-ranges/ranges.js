@@ -1,7 +1,7 @@
 /*****************************************************
   Outputs a CSV to have a vanilla hands poker range
 
-  Done in a fucntional way. No object here.
+  Done in a functional way. No object here.
 /*****************************************************/
 
 const cards = ['A', 'K', 'Q', 'J', 'T', '9', '8', '7', '6', '5', '4', '3', '2' ];
@@ -64,20 +64,26 @@ const handDisp = (c1, c2) => {
   }
 }
 
+const encapsulate = (hand) => {
+  return('<td>' + hand + '</td>');
+}
 
 // takes 2 cards and display them nicely
 const iter2 = (c1) => {
   line = '';
   return (c2) => {
-    process.stdout.write(handDisp(c1, c2));
-    process.stdout.write(', ');
+    process.stdout.write(encapsulate(handDisp(c1, c2)));
+    // process.stdout.write(', ');
   }
 }
 
 // takes one card & iterates against all cards
 const iter1 = (c1) => {
+  console.log('<tr>');
   cards.forEach(iter2(c1));
-  process.stdout.write('\n');
+  console.log();
+  console.log('</tr>');
+  // process.stdout.write('\n');
 }
 
 cards.forEach(iter1);
