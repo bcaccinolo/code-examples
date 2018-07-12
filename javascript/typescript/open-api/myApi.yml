@@ -1,0 +1,115 @@
+---
+swagger: "2.0"
+info:
+  description: "Expose endpoints to create, list and get latest revision of delegate\
+    \ GTC"
+  version: "1.0.0"
+  title: "GTC"
+  contact:
+    name: "Martin Catty"
+    url: "https://www.delegateip.com"
+    email: "mcatty@synbioz.com"
+host: "gtc.internal.staging.delegateip.com"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /gtc:
+    post:
+      summary: "Create a new GTC"
+      consumes: []
+      parameters:
+      - name: "body"
+        in: "body"
+        required: true
+        schema:
+          type: "object"
+          required:
+          - "content"
+          - "current"
+          - "revision_date"
+          properties:
+            content:
+              type: "string"
+            current:
+              type: "boolean"
+              default: false
+            revision_date:
+              type: "string"
+              format: "date"
+            status:
+              type: "string"
+              default: "draft"
+              enum:
+              - "draft"
+              - "published"
+            version:
+              type: "string"
+            url:
+              type: "string"
+      responses:
+        200:
+          description: "Status 200"
+  /gtc/{gtc_uid}:
+    get:
+      summary: "Get GTC by uid"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+          schema:
+            type: "object"
+            properties:
+              content:
+                type: "string"
+              current:
+                type: "boolean"
+              revision_date:
+                type: "string"
+              status:
+                type: "string"
+              version:
+                type: "string"
+              url:
+                type: "string"
+    parameters:
+    - name: "gtc_uid"
+      in: "path"
+      required: true
+      type: "string"
+      x-example: "1"
+  /gtc/{gtc_uid}/duplicate:
+    post:
+      summary: "Duplicate an existing version of GTC"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+        404:
+          description: "GTC has not been found"
+    parameters:
+    - name: "gtc_uid"
+      in: "path"
+      required: true
+      type: "string"
+      description: "uid"
+      x-example: "1"
+  /gtc/{gtc_uid}/mark_as_current:
+    post:
+      summary: "Mark this version of GTC as the current one"
+      parameters: []
+      responses:
+        200:
+          description: "Status 200"
+        404:
+          description: "GTC has not been found"
+    parameters:
+    - name: "gtc_uid"
+      in: "path"
+      required: true
+      type: "string"
+      description: "uid"
+      x-example: "1"

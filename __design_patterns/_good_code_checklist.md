@@ -1,6 +1,4 @@
 
-
-
 http://blog.codeclimate.com/blog/2016/11/10/your-checklist-for-quality-code/
 
 ☐ Clear
@@ -21,15 +19,19 @@ As with clarity, documentation – inside the code or external – is highly reg
 
 ☐ Bug-free
 
-A raincoat that doesn’t keep out water isn’t high quality. For the same reason, the presence of bugs preventing desired behavior is a common marker of low-quality code.
+A raincoat that doesn’t keep out water isn’t high quality. For the same reason,
+the presence of bugs preventing desired behavior is a common marker of low-quality code.
 
 ☐ Refactored
 
-Refactored code is code that is not just written once and committed, but iterated on to match best practices and the team’s conventions.
+Refactored code is code that is not just written once and committed, but iterated on
+to match best practices and the team’s conventions.
 
 ☐ Extensible
 
-In a business environment, codebases are constantly evolving to meet new requirements. Code that is extensible is prized for its ability to enable developers to rapidly add new features without having to spend a lot of time on maintenance.
+In a business environment, codebases are constantly evolving to meet new requirements.
+Code that is extensible is prized for its ability to enable developers to rapidly add
+new features without having to spend a lot of time on maintenance.
 
 ☐ Performant
 
