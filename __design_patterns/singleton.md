@@ -1,10 +1,15 @@
 # Design pattern : Singleton
 
-Blog resource: https://dalibornasevic.com/posts/9-ruby-singleton-pattern
+## Resources
+
+- https://dalibornasevic.com/posts/9-ruby-singleton-pattern
+- https://github.com/kamranahmedse/design-patterns-for-humans#-singleton
 
 ## When to use - What it solves
 
+It's when you want to ensure you have just one instance of one Class.
 
+Example: I want one instance of my main Configuration class.
 
 # Ruby
 Ruby has a module to ease them implementation of singleton classes.
@@ -31,8 +36,3 @@ Logger.instance.log('message 2')
 
 ```
 
-# PHP
-
-# Javascript
-
-# Python

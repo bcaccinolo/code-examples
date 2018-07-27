@@ -1,13 +1,16 @@
 # Composite
 
-Source: https://en.wikipedia.org/wiki/Composite_pattern
+## Resources
+
+- https://github.com/kamranahmedse/design-patterns-for-humans#-composite
+- Source: https://en.wikipedia.org/wiki/Composite_pattern
 
 ## What problems can the Composite design pattern solve?
 
  - The key concept is that you can manipulate a single instance of the object just as you would manipulate a group of them.
 
- - If programmers find that they are using multiple objects in the same way, and often have nearly identical code to handle each of them, then composite is a good choice; it is less complex in this situation to treat primitives and composites as homogeneous.
-
+ - If programmers find that they are using multiple objects in the same way, and often have nearly identical code to handle each of them,
+    then composite is a good choice; it is less complex in this situation to treat primitives and composites as homogeneous.
 
 In the following example, we clearly see that we are building a tree structure where `Ellipses` are leafes and `Composite` objects are branches.
 

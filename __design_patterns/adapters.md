@@ -1,8 +1,9 @@
 # Design pattern : Adapters
 
-https://github.com/kamranahmedse/design-patterns-for-humans#-adapter
+## Resources
 
-Blog resource: https://www.sitepoint.com/using-and-testing-the-adapter-design-pattern/
+- https://github.com/kamranahmedse/design-patterns-for-humans#-adapter
+- Blog resource: https://www.sitepoint.com/using-and-testing-the-adapter-design-pattern/
 
 ## When to use - What it solves
 
@@ -17,12 +18,11 @@ Donc il faut tester, les 2 classes:
    classe Null qui simule un adapter de base et qui retourne des données simples à tester.
  - la classe Adapter : on l'appelle avec la classe Mère et on valide que les méthodes de la classe Adapter sont bien appelées.
 
-
 ## Concrete speaking example
 
 i.e. you have an object connecting to the DB. you create an adapter so you can have a :
  - DbAdapter for production
- - TestAdapter for testing
+ - TestAdapter for testing (using in memory DB)
 
 Simple and Flexible ;0)
 
