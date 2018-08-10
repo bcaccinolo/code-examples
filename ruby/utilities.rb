@@ -1,5 +1,3 @@
-
-
 # Generate OAuth like token
 #  - base64 generated
 #  - 64 chars length

@@ -1,5 +1,9 @@
 # Presenter
 
+Presenter is integrated in the pattern Model-View-Presenter. Views can't access directly Models. They have to
+interact with Presenters.
+
+The `Presenter::PortfolioSwitch` is in charge of structuring a data structure to manage Portfolios.
 
 ```ruby
   def portfolio_switch
@@ -7,5 +11,4 @@
   end
 ```
 
-The `Presenter::PortfolioSwitch` is in charge of structuring a data structure to manage Portfolios.
 
