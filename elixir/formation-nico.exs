@@ -7,30 +7,8 @@ defmodule MonMod do
 
 end
 
-# Les listes
-# se sont des listes chaînées en mémoire > accès plus lent aux éléments
-
-list = [ 1, 2, 3 ]
-
-IO.puts list
-
-# Tuples
-# les données sont contigues en mémoire > accès plus rapide en mémoire
-
-tpl = {1, 2, :atom}
-
 # Le Pattern matching
 # {a, b, c} = {"coucou", "monde"}  # marche pas
-
-# Les Keyword lists
-# Les éléments de la liste sont ordonnés
-#
-kl1 = [ a: 1, b: 2, c: 3]
-# ou
-kl2 = [{:a, 1}, {:b, 2}, {:c, 3}]
-
-# kl = [ a: 1, b: 2, 3] < Error, il faut que la pair commence par un atom et que ce soit une paire :)
-kl3 = [ a: 0, a: 1, b: 2]
 
 # if en one line prend une Keyword list en 2eme argument
 if(1, do: 2, else: 3)

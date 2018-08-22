@@ -1,5 +1,9 @@
 # Composite
 
+## Tl;dr
+
+ - The key concept is that you can manipulate a single instance of the object just as you would manipulate a group of them.
+
 ## Resources
 
 - https://github.com/kamranahmedse/design-patterns-for-humans#-composite

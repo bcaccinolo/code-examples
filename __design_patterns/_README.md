@@ -12,25 +12,26 @@ PATTERNS FOR HUMANS https://github.com/kamranahmedse/design-patterns-for-humans
 Ruby pattens:
   - https://practicingruby.com/articles/structural-design-patterns
   - https://practicingruby.com/articles/creational-design-patterns
-  - https://github.com/nslocum/design-patterns-in-ruby#observer
+
+  - https://github.com/nslocum/design-patterns-in-ruby#design-patterns-in-ruby
+
 
 ## Patterns
 
 | Pattern | Treated? |
 --- | ---
-| Adapter | NO |
-| Bridge | NO |
-| Chain of Responsibility | NO |
-| Command | NO |
-| Composite | NO |
-| Decorator | NO |
+| Adapter | YES |
+| Bridge | YES |
+| Chain of Responsibility | YES |
+| Command | YES |
+| Composite | YES |
+| 🔥 Decorator | NO |
 | Dependency Injection | NO |
 | Facade | NO |
 | Iterator | NO |
 | Mediator | NO |
 | Memento | NO |
 | Mixins in Ruby | NO |
-| Observer | NO |
 | Observer | NO |
 | Proxy | NO |
 | Separation of concerns | NO |

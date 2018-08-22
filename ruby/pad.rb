@@ -1,21 +1,45 @@
 
+content = <<TEMP
+---
+case:
+  case_reference: "the internal reference"
+  comment: "Client comment"
+  person_in_charge: "client contact"
+  po_number: "Client invoice ref"
+  project_name: "Client project name"
+  chains:
+    -
+      changes:
+        -
+          from: from
+          to: to
+          type_id: "type id"
+      id: 12
+      target_jurisdictions: "[patent] List of jurisdictions"
+      target_portfolio:
+        -
+          - fr
+          - 12
+          - 23
+          - 42
+      target_publication_number: "[patent] patent number"
+      target_type: "patent | portfolio"
 
-require 'net/http'
+TEMP
 
-result = []
-regexp = /Net::HTTP(.*)/
+puts content
 
-Net::HTTPResponse::CODE_TO_OBJ.each do |cc|
-  cls = cc[1].to_s
-  res = regexp.match(cls)
-  cc << res[1].underscore
-  result << cc
-end ; nil
+require 'yaml'
+# Parse a YAML string
+YAML.load(content)
 
 
-puts result
 
-result.each do |line|
-  puts "#{line[0].to_i}, #{line[2]}, #{line[1]}"
-end ; nil
+
+
+
+
+
+
+
 

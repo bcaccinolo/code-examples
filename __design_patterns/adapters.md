@@ -1,5 +1,13 @@
 # Design pattern : Adapters
 
+## Tl;dr
+
+For me Adapters are implementations of an Interface.
+
+Example: for the Interface FindToys, you have the adapters:
+- SantaClaus
+- ToysRus
+
 ## Resources
 
 - https://github.com/kamranahmedse/design-patterns-for-humans#-adapter
@@ -11,7 +19,7 @@ It makes the code more flexible.
 
 ## Testing the adapter
 
-De façon la plus simple, tu as une classe Mère et une adapter appelée par la classe mère.
+De façon la plus simple, tu as une classe Mère (ou Interface) et une adapter appelée par la classe mère.
 
 Donc il faut tester, les 2 classes:
  - la classe Mère : il faut tester que le système d'adapter fonctionne comme il faut. Pour cela il serait bien d'avoir une
