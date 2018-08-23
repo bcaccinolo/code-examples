@@ -20,22 +20,22 @@ Ruby pattens:
 
 | Pattern | Treated? |
 --- | ---
-| Adapter | YES |
-| Bridge | YES |
-| Chain of Responsibility | YES |
-| Command | YES |
-| Composite | YES |
-| 🔥 Decorator | NO |
-| Dependency Injection | NO |
-| Facade | NO |
-| Iterator | NO |
-| Mediator | NO |
-| Memento | NO |
-| Mixins in Ruby | NO |
-| Observer | NO |
-| Proxy | NO |
-| Separation of concerns | NO |
-| Single responsibility principles | NO |
-| Singleton | NO |
-| State | NO |
-| Strategy | NO |
+| Adapter                             | YES |
+| Bridge                              | YES |
+| Chain of Responsibility             | YES |
+| Command                             | YES |
+| Composite                           | YES |
+| Decorator                           | YES |
+| Dependency Injection                | 🔥 |
+| Facade                              | NO |
+| Iterator                            | NO |
+| Mediator                            | NO |
+| Memento                             | NO |
+| Mixins in Ruby                      | NO |
+| Observer                            | NO |
+| Proxy                               | NO |
+| Separation of concerns              | NO |
+| Single responsibility principles    | NO |
+| Singleton                           | NO |
+| State                               | NO |
+| Strategy                            | NO |
