@@ -7,7 +7,7 @@ some patterns and also to lear some.
 
 ## Resources
 
-PATTERNS FOR HUMANS https://github.com/kamranahmedse/design-patterns-for-humans
+- PATTERNS FOR HUMANS https://github.com/kamranahmedse/design-patterns-for-humans
 
 Ruby pattens:
   - https://practicingruby.com/articles/structural-design-patterns
@@ -20,22 +20,23 @@ Ruby pattens:
 
 | Pattern | Treated? |
 --- | ---
-| Adapter                             | YES |
-| Bridge                              | YES |
-| Chain of Responsibility             | YES |
-| Command                             | YES |
-| Composite                           | YES |
-| Decorator                           | YES |
-| Dependency Injection                | 🔥 |
-| Facade                              | NO |
-| Iterator                            | NO |
-| Mediator                            | NO |
-| Memento                             | NO |
-| Mixins in Ruby                      | NO |
-| Observer                            | NO |
+| Adapter                             | ✅ |
+| Bridge                              | ✅ |
+| Chain of Responsibility             | ✅ |
+| Command                             | ✅ |
+| Composite                           | ✅ |
+| Decorator                           | ✅ |
+| Facade                              | ✅ |
+| Iterator                            | ✅ |
+| Mediator                            | ✅ |
+| Memento                             | ✅ |
+| Mixins in Ruby                      | ✅ |
+| Observer                            | 🔥 |
 | Proxy                               | NO |
 | Separation of concerns              | NO |
+
 | Single responsibility principles    | NO |
 | Singleton                           | NO |
+
 | State                               | NO |
 | Strategy                            | NO |
