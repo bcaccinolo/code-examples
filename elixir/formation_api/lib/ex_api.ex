@@ -4,7 +4,14 @@ defmodule ExApi do
 
   # Basic solution without any help from external Plugs
   #
+  # This is a simple module plug
+  #
+  # Test the plug on http://localhost:4000
   # Plug.Adapters.Cowboy.http ExApi.Simple, []
+  #
+  # To stop it:
+  # Plug.Adapters.Cowboy.shutdown ExApi.Simple.HTTP
+  #
   defmodule Simple do
     import Plug.Conn
 
@@ -20,6 +27,8 @@ defmodule ExApi do
   end
 
   # We are building a simple `router` using pattern matching.
+  #
+  # This is a simple module plug (implementing init/1 and call/2)
   #
   # pid = Plug.Adapters.Cowboy.http ExApi.Router, []
   defmodule Router do
@@ -54,6 +63,8 @@ defmodule ExApi do
   end
 
   # We are using `Plug.Router` like Pros
+  #
+  # Here we are in the situation of Plug pipeline (several plugs are chained)
   #
   # pid = Plug.Adapters.Cowboy.http ExApi.PlugRouter, []
   defmodule PlugRouter do

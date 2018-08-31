@@ -1,0 +1,6 @@
+version: '2.1'
+services:
+  web:
+    image: nginx
+    environment:
+      DNSDOCK_ALIAS: www.synbioz.test
