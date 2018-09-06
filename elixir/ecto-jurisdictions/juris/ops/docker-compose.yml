@@ -1,0 +1,12 @@
+version: '2.1'
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      DNSDOCK_ALIAS: pg-api.docker
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: api
+
+# PG CONNECTION COMMAND : psql api  -h pg-api.docker -U benoit -W
