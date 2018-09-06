@@ -1,17 +1,23 @@
 # Juris
 
-**TODO: Add description**
-
 ## Todo
 
-- insert all jurisdictions from a yml file Seeds
+- DONE insert all jurisdictions from a yml file Seeds
+- DONE voir pour la persistence de la DB postgres
+- DONE have a mix task to import seeds
 
+## Setup
+
+### Setup the database
+
+> cd ops/
+> dc up
 
 
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+If [available in Hex](https://hex.pm/docs/publ11ish), the package can be installed
 by adding `juris` to your list of dependencies in `mix.exs`:
 
 ```elixir

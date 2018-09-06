@@ -4,6 +4,7 @@ defmodule Jurisdiction do
   # weather is the DB table
   schema "jurisdictions" do
     field(:code, :string)
+    field(:name, :string)
   end
 
 def changeset(jurisdiction, params \\ %{}) do

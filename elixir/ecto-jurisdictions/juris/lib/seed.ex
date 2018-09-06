@@ -1,7 +1,11 @@
 defmodule Seed do
 
+  # c "./lib/juris/seed.ex"
+
   @doc """
   Loads all Jurisdctions from the CSV file.
+
+  Main method.
   """
   def load do
     "../priv/seeds/all.csv"
@@ -14,10 +18,8 @@ defmodule Seed do
   @doc """
   Store one jurisdiction
   """
-  def store_jurisdiction({:ok, data}) do
-    code = data |> List.pop_at(1) |> elem(0)
-
-    %Jurisdiction{ code: code}
+  def store_jurisdiction({:ok, [name, code | _]}) do
+    %Jurisdiction{ code: code, name: name}
     |> Repo.insert!
     |> IO.inspect(label: "after")
   end
