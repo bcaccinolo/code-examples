@@ -23,7 +23,8 @@ defmodule Juris.MixProject do
   defp deps do
     [
       {:ecto, "~> 2.2.10"},
-      {:postgrex, "~> 0.13.5"}
+      {:postgrex, "~> 0.13.5"},
+      {:csv, "~> 2.1.1"}
       # {:dep_from_hexpm, "~> 0.3.0"},
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
     ]
