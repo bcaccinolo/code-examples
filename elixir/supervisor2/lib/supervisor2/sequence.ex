@@ -1,6 +1,14 @@
-defmodule Sequence do
+defmodule Supervisor2.Sequence do
+
+  @name :sequence
 
   use GenServer
+
+  def start_link(state) do
+    {:ok, pid} = GenServer.start_link(__MODULE__, state)
+    :global.register_name(@name, pid)
+    {:ok, pid}
+  end
 
   def init(state) do
     {:ok, state}

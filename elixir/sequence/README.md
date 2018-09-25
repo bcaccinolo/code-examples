@@ -16,4 +16,9 @@ iex(4)> GenServer.call pid, :dec
 3
 iex(5)> GenServer.call pid, :dec
 2
+
+GenServer.call pid, {:inc_with, 5}
+
+GenServer.call pid, {:inc_with, 'cat'}
+will crash the server!
 ```
