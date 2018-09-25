@@ -1,5 +1,10 @@
 # Juris
 
+# Specifications
+
+https://docs.google.com/document/d/1tC5tqynh8lV8jj7-kF31ZzRYHwd0van_3cKdnuTGlfw/edit#
+
+
 ## Todo
 
 - DONE insert all jurisdictions from a yml file Seeds

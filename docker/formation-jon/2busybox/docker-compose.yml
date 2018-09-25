@@ -1,0 +1,9 @@
+version: "2.1"
+services:
+  app1:
+    image: busybox
+    command: httpd
+
+  app2:
+    image: busybox
+    command: httpd

@@ -4,7 +4,7 @@ defmodule Bowling do
     def score rolls do
        calculate 1, rolls
     end
-    
+
     def calculate i, list do
         if i > 10 do
             0
@@ -13,7 +13,7 @@ defmodule Bowling do
                 {:strike, score} -> score + calculate(i+1, Enum.slice(list, 1, 20))
                 {:spare , score} -> score + calculate(i+1, Enum.slice(list, 2, 20))
                 {:normal, score} -> score + calculate(i+1, Enum.slice(list, 2, 20))
-            end        
+            end
         end
     end
 
@@ -27,10 +27,10 @@ defmodule Bowling do
     end
 
     def strike list do
-        {:strike, Enum.slice(list, 0..2) |> Enum.reduce(fn(x, acc) -> x + acc end)} 
+        {:strike, Enum.slice(list, 0..2) |> Enum.reduce(fn(x, acc) -> x + acc end)}
     end
 
-    def spare list do 
+    def spare list do
         {:spare, Enum.slice(list, 0..2) |> Enum.reduce(fn(x, acc) -> x + acc end)}
     end
 
