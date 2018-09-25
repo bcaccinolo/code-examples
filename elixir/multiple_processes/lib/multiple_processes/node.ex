@@ -1,8 +1,11 @@
 defmodule MultipleProcesses.Node do
 
   def call(dest) do
+    IO.puts("Process #{inspect self()} waiting for a message")
     receive do
-      msg -> send(dest, msg)
+      msg ->
+        IO.puts("Receiving message #{msg} and sending it to #{inspect dest}")
+        send(dest, msg)
     end
   end
 

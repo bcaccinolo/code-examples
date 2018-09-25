@@ -1,21 +1,13 @@
 # Pmap
 
-**TODO: Add description**
+This a part of the book Elixir, Functional programming.
 
-## Installation
+Pmap stands for `Parallel map`.
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `pmap` to your list of dependencies in `mix.exs`:
+It launches a process for each calculation and it waits for the return in the same order.
 
-```elixir
-def deps do
-  [
-    {:pmap, "~> 0.1.0"}
-  ]
-end
+## How to launch?
+In iex, launch :
 ```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/pmap](https://hexdocs.pm/pmap).
-
+Pmap.Base.init(10)
+```

@@ -1,6 +1,6 @@
 defmodule PmapTest do
   use ExUnit.Case
-  doctest Pmap
+  doctest Pmap.Base
 
   test "greets the world" do
     n = 200000

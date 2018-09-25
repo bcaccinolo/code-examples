@@ -1,4 +1,6 @@
 
+# Random notes from Elixir training with Nico
+
 defmodule MonMod do
 
   def test() do
