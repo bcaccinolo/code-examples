@@ -13,9 +13,8 @@ defmodule Stack do
     {:reply, h, tl}
   end
 
+  def handle_cast({:push, item}, state) do
+    {:noreply, [item | state]}
+  end
+
 end
-
-
-# {:ok, pid} = GenServer.start_link Stack, [1, 3]
-
-# GenServer.call pid, :pop

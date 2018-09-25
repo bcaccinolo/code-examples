@@ -21,6 +21,7 @@ defmodule Ticker do
       after
         @interval ->
           IO.puts("tick")
+          # a process is spawned to rapidly accept other registrations
           spawn(fn ->
             IO.puts("Client list is #{inspect clients}")
             Enum.each clients, fn client ->
