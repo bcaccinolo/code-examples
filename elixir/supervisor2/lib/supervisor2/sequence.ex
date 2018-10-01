@@ -5,12 +5,14 @@ defmodule Supervisor2.Sequence do
   use GenServer
 
   def start_link(state) do
+    IO.puts("in the start link")
     {:ok, pid} = GenServer.start_link(__MODULE__, state)
     :global.register_name(@name, pid)
     {:ok, pid}
   end
 
   def init(state) do
+    IO.puts("in the init")
     {:ok, state}
   end
 

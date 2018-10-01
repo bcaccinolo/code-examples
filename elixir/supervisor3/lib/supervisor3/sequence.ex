@@ -1,9 +1,10 @@
-defmodule Sequence do
+defmodule Supervisor3.Sequence do
 
   use GenServer
 
-  def start_link(state) do
-    {:ok, pid} = GenServer.start_link(__MODULE__, state, name: __MODULE__)
+  def start_link(_) do
+    IO.puts("Launching the Sequence!")
+    {:ok, pid} = GenServer.start_link(__MODULE__, Supervisor3.Stash.get, name: __MODULE__)
   end
 
   def inc() do
@@ -33,6 +34,11 @@ defmodule Sequence do
 
   def handle_call({:inc_with, delta}, _from, state) do
     {:reply, state + delta, state + delta}
+  end
+
+  def terminate(_, state) do
+    IO.puts("Storing the state before crarhing")
+    Supervisor3.Stash.set(state)
   end
 
 end
