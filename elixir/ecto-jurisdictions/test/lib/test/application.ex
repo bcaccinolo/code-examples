@@ -1,4 +1,4 @@
-defmodule Juris.Application do
+defmodule Test.Application do
   # See https://hexdocs.pm/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -8,12 +8,14 @@ defmodule Juris.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      Juris.Repo
+      # Starts a worker by calling: Test.Worker.start_link(arg)
+      # {Test.Worker, arg},
+      Test.Repo
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
-    opts = [strategy: :one_for_one, name: Juris.Supervisor]
+    opts = [strategy: :one_for_one, name: Test.Supervisor]
     Supervisor.start_link(children, opts)
   end
 end

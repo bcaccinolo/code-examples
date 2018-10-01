@@ -1,6 +1,6 @@
-defmodule Juris do
+defmodule Test do
   @moduledoc """
-  Documentation for Juris.
+  Documentation for Test.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule Juris do
 
   ## Examples
 
-      iex> Juris.hello()
+      iex> Test.hello()
       :world
 
   """

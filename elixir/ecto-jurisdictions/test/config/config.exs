@@ -2,6 +2,17 @@
 # and its dependencies with the aid of the Mix.Config module.
 use Mix.Config
 
+config :test,
+      ecto_repos: [Test.Repo]
+
+config :test, Test.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  database: "api",
+  username: "postgres",
+  password: "postgres",
+  hostname: "pg-api.docker"
+
+
 # This configuration is loaded before any dependency and is restricted
 # to this project. If another project depends on this project, this
 # file won't be loaded nor affect the parent project. For this reason,
@@ -10,11 +21,11 @@ use Mix.Config
 
 # You can configure your application as:
 #
-#     config :juris, key: :value
+#     config :test, key: :value
 #
 # and access this configuration in your application as:
 #
-#     Application.get_env(:juris, :key)
+#     Application.get_env(:test, :key)
 #
 # You can also configure a 3rd-party app:
 #
@@ -28,13 +39,3 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env()}.exs"
-
-# Defining the list of repositories allow the command 'mix ecto.create' to generate all databases.
-config :juris, ecto_repos: [Juris.Repo]
-
-config :juris, Juris.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "api",
-  username: "postgres",
-  password: "postgres",
-  hostname: "pg-api.docker"
