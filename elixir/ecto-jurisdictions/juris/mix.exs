@@ -14,7 +14,7 @@ defmodule Juris.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger],
+      extra_applications: [:logger, :cowboy, :plug, :poison],
       mod: {Juris.Application, []}
     ]
   end
@@ -24,9 +24,10 @@ defmodule Juris.MixProject do
     [
       {:ecto, "~> 2.2.10"},
       {:postgrex, "~> 0.13.5"},
-      {:csv, "~> 2.1.1"}
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"},
+      {:csv, "~> 2.1.1"},
+      {:cowboy, "~> 2.4.0"},
+      {:plug, "~> 1.6.3"},
+      {:poison, "~> 3.1.0"}
     ]
   end
 end

@@ -40,3 +40,8 @@ docker-compose up
 ### Loads Seeds
 ```mix seeds.load```
 
+## Query Jurisdictions
+
+Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#from/2
+
+
