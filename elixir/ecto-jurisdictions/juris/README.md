@@ -44,4 +44,16 @@ docker-compose up
 
 Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#from/2
 
+## Testing
+
+### DB setup for testing
+```
+ MIX_ENV=test mix ecto.drop
+ MIX_ENV=test mix ecto.create
+ MIX_ENV=test mix ecto.migrate
+ MIX_ENV=test mix seeds.load
+```
+
+
+
 

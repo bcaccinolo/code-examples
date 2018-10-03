@@ -6,9 +6,10 @@ defmodule Seed do
   Main method.
   """
   def load do
-    "../priv/seeds/all.csv"
+    "../../priv/seeds/all.csv"
     |> Path.expand(__DIR__)
     |> File.stream!
+    |> IO.inspect
     |> CSV.decode
     |> Enum.each(fn(e) -> store_jurisdiction(e) end)
   end

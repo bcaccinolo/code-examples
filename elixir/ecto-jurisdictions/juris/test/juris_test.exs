@@ -1,8 +1,5 @@
 defmodule JurisTest do
   use ExUnit.Case
-  doctest Juris
+  # doctest Juris
 
-  test "greets the world" do
-    assert Juris.hello() == :world
-  end
 end

@@ -8,8 +8,6 @@ use Mix.Config
 # if you want to provide default values for your application for
 # 3rd-party users, it should be done in your "mix.exs" file.
 
-config :juris, port: 3000
-
 # You can configure your application as:
 #
 #     config :juris, key: :value
@@ -23,20 +21,10 @@ config :juris, port: 3000
 #     config :logger, level: :info
 #
 
-# It is also possible to import configuration files, relative to this
-# directory. For example, you can emulate configuration per environment
-# by uncommenting the line below and defining dev.exs, test.exs and such.
-# Configuration from the imported file will override the ones defined
-# here (which is why it is important to import them last).
-#
-#     import_config "#{Mix.env()}.exs"
+config :juris, port: 3000
 
 # Defining the list of repositories allow the command 'mix ecto.create' to generate all databases.
 config :juris, ecto_repos: [Juris.Repo]
 
-config :juris, Juris.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  database: "api",
-  username: "postgres",
-  password: "postgres",
-  hostname: "pg-api.docker"
+# Configuration per environment
+import_config "#{Mix.env()}.exs"
