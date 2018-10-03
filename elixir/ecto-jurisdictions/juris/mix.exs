@@ -14,7 +14,7 @@ defmodule Juris.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger, :cowboy, :plug, :poison],
+      extra_applications: [:logger, :cowboy, :plug],
       mod: {Juris.Application, []}
     ]
   end
@@ -27,7 +27,7 @@ defmodule Juris.MixProject do
       {:csv, "~> 2.1.1"},
       {:cowboy, "~> 2.4.0"},
       {:plug, "~> 1.6.3"},
-      {:poison, "~> 3.1.0"}
+      {:jason, "~> 1.1.1"}
     ]
   end
 end

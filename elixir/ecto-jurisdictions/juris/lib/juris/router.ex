@@ -9,9 +9,11 @@ defmodule Juris.Router do
   plug(:match)
   plug(:dispatch)
 
-  # Simple GET Request handler for path /hello
-  get "/hello" do
-    send_resp(conn, 200, "world")
+  # Return all jurisdictions in Json format
+  get "/jurisdictions" do
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, Juris.UseCases.GetJurisdictions.call)
   end
 
   match _ do
