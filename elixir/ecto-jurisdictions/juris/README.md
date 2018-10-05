@@ -1,5 +1,10 @@
 # Juris
 
+## Changelog
+
+V0.1:
+- implementation of the endpoint Get /jurisdictions
+
 ## Possible setup problem
 
 Running iex, there was this kind if problem:
