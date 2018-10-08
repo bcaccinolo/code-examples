@@ -25,11 +25,4 @@ defmodule Jurisdiction do
     end
   end
 
-  # Not used yet
-  def changeset(jurisdiction, params \\ %{}) do
-    jurisdiction
-    |> Ecto.Changeset.cast(params, [:code])
-    |> Ecto.Changeset.validate_required([:code])
-  end
-
 end
