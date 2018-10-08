@@ -9,10 +9,10 @@ defmodule Jurisdiction do
   end
 
   # Query all the Jurisdicnions with pagination
-  def all_paginated do
+  def all_paginated(page) do
     from( j in Jurisdiction,
           select: [j.name, j.code] )
-    |> Juris.Repo.paginate
+    |> Juris.Repo.paginate(page: page)
   end
 
   # Query all the Jurisdicnions

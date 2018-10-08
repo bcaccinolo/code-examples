@@ -9,6 +9,13 @@ defmodule Juris.Router do
   plug(:match)
   plug(:dispatch)
 
+  # Return paginated jurisdictions in Json format
+  get "/jurisdictions/:page" do
+    conn
+    |> put_resp_content_type("application/json")
+    |> send_resp(200, Juris.UseCases.GetJurisdictions.call(page))
+  end
+
   # Return all jurisdictions in Json format
   get "/jurisdictions" do
     conn
