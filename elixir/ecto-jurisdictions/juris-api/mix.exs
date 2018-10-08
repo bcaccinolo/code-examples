@@ -23,6 +23,7 @@ defmodule Juris.MixProject do
   defp deps do
     [
       {:ecto, "~> 2.2.10"},
+      {:scrivener_ecto, "~> 1.3.0"},
       {:postgrex, "~> 0.13.5"},
       {:csv, "~> 2.1.1"},
       {:cowboy, "~> 2.4.0"},
