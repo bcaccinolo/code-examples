@@ -16,6 +16,15 @@ defmodule Jurisdiction do
     Juris.Repo.all(query)
   end
 
+  # Fuzzy search
+  def fuzzy(query) do
+    query = "select name from jurisdictions where name % '#{query}';"
+    case Juris.Repo.query(query) do
+      {:ok, %Postgrex.Result{rows: rows}} -> List.flatten(rows)
+      {:error, _} -> :error
+    end
+  end
+
   # Not used yet
   def changeset(jurisdiction, params \\ %{}) do
     jurisdiction

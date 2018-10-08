@@ -45,6 +45,9 @@ docker-compose up
 ### Loads Seeds
 ```mix seeds.load```
 
+### Activate fuzzy search
+```mix db.set_extension```
+
 ## Query Jurisdictions
 
 Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#from/2
@@ -57,6 +60,7 @@ Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#
  MIX_ENV=test mix ecto.create
  MIX_ENV=test mix ecto.migrate
  MIX_ENV=test mix seeds.load
+ MIX_ENV=test mix db.set_extension
 ```
 
 

@@ -5,6 +5,6 @@ defmodule Mix.Tasks.Db.SetExtension do
   @shortdoc "Set the extension pg_trgm"
   def run(_data) do
     ensure_started(Juris.Repo, [])
-    Juris.Repo.SetExtension
+    Juris.Repo.set_extension()
   end
 end

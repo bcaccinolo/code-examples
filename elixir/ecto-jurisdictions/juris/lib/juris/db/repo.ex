@@ -3,7 +3,7 @@ defmodule Juris.Repo do
 
   # Set the pg_trgm for the fuzzy search
   def set_extension do
-    query "CREATE EXTENSION pg_trgm;"
+    IO.puts("⚡️ Activating the PG extension pg_trgm")
+    __MODULE__.query "CREATE EXTENSION pg_trgm;"
   end
-
 end
