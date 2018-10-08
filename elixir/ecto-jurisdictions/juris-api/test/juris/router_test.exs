@@ -6,9 +6,9 @@ defmodule RouterTest do
 
   @opts Router.init([])
 
-  test "Fuzzy search 'fra'" do
+  test "Fuzzy search ' fra' (starts with a space)" do
     # Create a test connection
-    conn = conn(:get, "/fuzzy/fra")
+    conn = conn(:get, "/fuzzy/%20fra")
 
     # Invoke the plug
     conn = Router.call(conn, @opts)

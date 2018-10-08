@@ -1,27 +1,15 @@
 # Juris
 
+## Launch the server
+```
+iex -S mix
+```
+
+http://localhost:3000/fuzzy/bul
+
 ## Changelog
-
-V0.1:
-- implementation of the endpoint Get /jurisdictions
-
-## Possible setup problem
-
-Running iex, there was this kind if problem:
-```
-iex -S mix
-
-== Compilation error in file lib/repo.ex ==
-** (CompileError) lib/repo.ex:2: module Ecto.Repo is not loaded and could not be found
-    (elixir) expanding macro: Kernel.use/2
-    lib/repo.ex:2: Repo (module)
-```
-To solve this:
-```
-mix deps.clean --all
-mix deps.get
-iex -S mix
-```
+Everything is in Trello:
+https://trello.com/b/eZ9EzyaA/juridictions-api
 
 # Specifications
 https://docs.google.com/document/d/1tC5tqynh8lV8jj7-kF31ZzRYHwd0van_3cKdnuTGlfw/edit#
@@ -49,7 +37,6 @@ docker-compose up
 ```mix db.set_extension```
 
 ## Query Jurisdictions
-
 Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#from/2
 
 ## Testing
@@ -63,6 +50,20 @@ Ecto make it simple and straightforward https://hexdocs.pm/ecto/Ecto.Query.html#
  MIX_ENV=test mix db.set_extension
 ```
 
+## Possible setup problem
 
+Running iex, there was this kind if problem:
+```
+iex -S mix
 
-
+== Compilation error in file lib/repo.ex ==
+** (CompileError) lib/repo.ex:2: module Ecto.Repo is not loaded and could not be found
+    (elixir) expanding macro: Kernel.use/2
+    lib/repo.ex:2: Repo (module)
+```
+To solve this:
+```
+mix deps.clean --all
+mix deps.get
+iex -S mix
+```
