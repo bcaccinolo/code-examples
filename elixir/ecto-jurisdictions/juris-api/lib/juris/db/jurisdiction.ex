@@ -24,10 +24,10 @@ defmodule Jurisdiction do
 
   # Fuzzy search
   def fuzzy(query) do
-    "select name from jurisdictions where name % '#{query}';"
+    "select name, code from jurisdictions where name % '#{query}';"
     |> Juris.Repo.query
     |> case do
-      {:ok, %Postgrex.Result{rows: rows}} -> List.flatten(rows)
+      {:ok, %Postgrex.Result{rows: rows}} -> rows
       {:error, _} -> :error
     end
   end

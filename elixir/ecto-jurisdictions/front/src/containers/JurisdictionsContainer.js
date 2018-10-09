@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import Jurisdictions from './Jurisdictions';
+import Jurisdictions from '../components/Jurisdictions';
 
 class BaseComponent extends Component {
 
@@ -16,7 +16,29 @@ class BaseComponent extends Component {
 
   // once mounted, we refresh the list
   componentDidMount = () => {
-    this.jurisdiction_page(2);
+    this.jurisdiction_page(1);
+  }
+
+  // when the search field is updated
+  onChange = (ev, data) => {
+    const query = data.value.trim()
+    if(query.length == 0) {
+      this.jurisdiction_page(1);
+    } else {
+      this.search(data.value.trim())
+    }
+  }
+
+  search = (query) => {
+    this.setState({fetching: true})
+    const url = '/fuzzy/' + query
+    axios.get(url)
+    .then(response => response.data)
+    .then(data => {
+      console.log(data)
+      this.setState({ jurisdictions: data,
+                      total_pages: null })
+    })
   }
 
   jurisdiction_page = (page) => {
@@ -42,14 +64,14 @@ class BaseComponent extends Component {
     this.jurisdiction_page(this.state.page_number - 1)
   }
 
-
   render = () => {
     return (
-      <Jurisdictions  jurisdictions={this.state.jurisdictions}
-                      pageNumber={this.state.page_number}
-                      totalPages={this.state.total_pages}
-                      nextPage={this.nextPage}
-                      previousPage={this.previousPage} />
+        <Jurisdictions  jurisdictions={this.state.jurisdictions}
+                        pageNumber={this.state.page_number}
+                        totalPages={this.state.total_pages}
+                        nextPage={this.nextPage}
+                        previousPage={this.previousPage}
+                        onChange={this.onChange} />
     )
   }
 }
