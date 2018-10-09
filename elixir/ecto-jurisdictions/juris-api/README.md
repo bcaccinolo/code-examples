@@ -5,7 +5,7 @@
 iex -S mix
 ```
 
-http://localhost:3000/fuzzy/bul
+http://localhost:3100/fuzzy/bul
 
 ## Changelog
 Everything is in Trello:

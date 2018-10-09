@@ -21,7 +21,7 @@ use Mix.Config
 #     config :logger, level: :info
 #
 
-config :juris, port: 3000
+config :juris, port: 3100
 
 # Defining the list of repositories allow the command 'mix ecto.create' to generate all databases.
 config :juris, ecto_repos: [Juris.Repo]
