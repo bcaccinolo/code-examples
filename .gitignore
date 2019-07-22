@@ -2,6 +2,9 @@
 
 *.pyc
 
+# Javascript
+node_modules/
+
 # Elixir related
 *.beam
 .elixir_ls/
