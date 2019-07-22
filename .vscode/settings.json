@@ -1,4 +1,5 @@
 {
   "python.linting.pylintEnabled": false,
-  "python.linting.pep8Enabled": false
+  "python.linting.pep8Enabled": false,
+  "git.ignoreLimitWarning": true
 }
