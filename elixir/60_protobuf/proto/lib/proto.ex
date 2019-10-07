@@ -1,18 +1,17 @@
 defmodule Proto do
-  @moduledoc """
-  Documentation for Proto.
-  """
+  use Protobuf, """
+  message Msg {
+    message SubMsg {
+      required uint32 value = 1;
+    }
 
-  @doc """
-  Hello world.
+    enum Version {
+      V1 = 1;
+      V2 = 2;
+    }
 
-  ## Examples
-
-      iex> Proto.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
+    required Version version = 2;
+    optional SubMsg sub = 1;
+  }
+"""
 end
