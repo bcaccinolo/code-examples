@@ -8,3 +8,11 @@ clj -m cljs.main --target node --output-to main.js -c try.core
 ```
 node main.js
 ```
+
+## Todo
+
+- 🔥 test use of promisa (async/await)
+
+
+
+
