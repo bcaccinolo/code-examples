@@ -14,16 +14,19 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("coucou");
         // Create two Students
         create(1, "Alice", 22); // Alice will get an id 1
         create(2, "Bob", 20); // Bob will get an id 2
         create(3, "Charlie", 25); // Charlie will get an id 3
 
+        System.out.println("coucou 2");
         // Update the age of Bob using the id
-        upate(2, "Bob", 25);
+//        upate(2, "Bob", 25);
 
+        System.out.println("coucou 3");
         // Delete the Alice from database
-        delete(1);
+//        delete(1);
 
 //        // Print all the Students
 //        List<Student> students = readAll();
@@ -48,34 +51,24 @@ public class Main {
         EntityManager manager = ENTITY_MANAGER_FACTORY.createEntityManager();
         EntityTransaction transaction = null;
 
-        try {
-            // Get a transaction
-            transaction = manager.getTransaction();
-            // Begin the transaction
-            transaction.begin();
+        // Get a transaction
+        transaction = manager.getTransaction();
+        // Begin the transaction
+        transaction.begin();
 
-            // Create a new Student object
-            Student stu = new Student();
-            stu.setId(id);
-            stu.setName(name);
-            stu.setAge(age);
+        // Create a new Student object
+        Student stu = new Student();
+//        stu.setId(id);
+        stu.setName(name);
+        stu.setAge(age);
 
-            // Save the student object
-            manager.persist(stu);
+        // Save the student object
+        manager.persist(stu);
 
-            // Commit the transaction
-            transaction.commit();
-        } catch (Exception ex) {
-            // If there are any exceptions, roll back the changes
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            // Print the Exception
-            ex.printStackTrace();
-        } finally {
-            // Close the EntityManager
-            manager.close();
-        }
+        // Commit the transaction
+        transaction.commit();
+
+        manager.close();
     }
 
     /**
