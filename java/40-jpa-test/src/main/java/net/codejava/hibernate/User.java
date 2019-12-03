@@ -1,15 +1,22 @@
 package net.codejava.hibernate;
 
+import javax.persistence.*;
+
 /**
  * User.java
  * Copyright by CodeJava.net
  */
+@Entity
+@Table(name = "USERS")
 public class User {
     private Integer id;
     private String fullname;
     private String email;
     private String password;
 
+    @Column(name = "USER_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
