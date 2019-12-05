@@ -19,7 +19,7 @@ echo $DB_CONTAINER_NAME
 
 ### Let's run the db
 `
-docker run --rm --name $DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=$DB_NAME mysql:8
+docker run -d --rm --name $DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=$DB_NAME mysql:8
 `
 
 ### Get ip to connect
