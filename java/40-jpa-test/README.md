@@ -4,35 +4,43 @@ https://www.codejava.net/frameworks/hibernate/java-hibernate-jpa-annotations-tut
 
 ## DB commands
 Let's get a db
-```
+`
 docker pull mysql:8
-```
+`
+
+### set db settings
+
+`
+DB_NAME=usersdb
+DB_CONTAINER_NAME=db-test-hibernate
+echo $DB_NAME
+echo $DB_CONTAINER_NAME
+`
 
 ### Let's run the db
-```
-docker run --rm --name db-test-hibernate -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=usersdb mysql:8
-```
+`
+docker run --rm --name $DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=$DB_NAME mysql:8
+`
 
 ### Get ip to connect
-```
-d inspect db-test-hibernate | a IPAddress
-```
-
-172.18.0.3
+`
+DB_IP=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DB_CONTAINER_NAME`
+echo $DB_IP
+`
 
 ### Stop the db container
 `
-d container stop db-test-hibernate
+d container stop $DB_CONTAINER_NAME
 `
 
 ### Connect to the db
 `
- mycli -u root -p root -h 172.18.0.3 userdb
+ mycli -u root -p root -h $DB_IP $DB_NAME
 `
 
 ### Fill the db 
 `
-mycli -u root -p root -h 172.18.0.3 userdb < init.sql
+mycli -u root -p root -h $DB_IP $DB_NAME < init.sql
 `
 
 
