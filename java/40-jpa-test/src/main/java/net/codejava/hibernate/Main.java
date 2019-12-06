@@ -5,22 +5,47 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Main {
-    public static void main(String[] args) {
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("UsersDB");
-        EntityManager entityManager = factory.createEntityManager();
+    static EntityManagerFactory factory = Persistence.createEntityManagerFactory("UsersDB");
+    static EntityManager entityManager = factory.createEntityManager();
 
+    static void initEntityManager() {
+        Main.factory = Persistence.createEntityManagerFactory("UsersDB");
+        Main.entityManager = factory.createEntityManager();
+    }
+
+    static void closeEntityMananger() {
+        Main.entityManager.close();
+        Main.factory.close();
+    }
+
+    static void createUser(String email, String fullName, String password) {
         entityManager.getTransaction().begin();
 
         User newUser = new User();
-        newUser.setEmail("billjoy@gmail.com");
-        newUser.setFullname("bill Joy");
-        newUser.setPassword("billi");
+        newUser.setEmail(email);
+        newUser.setFullname(fullName);
+        newUser.setPassword(password);
 
         entityManager.persist(newUser);
-
         entityManager.getTransaction().commit();
+    }
 
-        entityManager.close();
-        factory.close();
+    static void updateUserEmail(Integer primaryKey, String email) {
+        entityManager.getTransaction().begin();
+
+        User user = entityManager.find(User.class, primaryKey);
+        user.setEmail(email);
+
+        entityManager.merge(user);
+        entityManager.getTransaction().commit();
+    }
+
+    public static void main(String[] args) {
+        Main.initEntityManager();
+
+        Main.createUser("benoit@gmail.com", "Benoit C.", "my secret pass");
+        Main.updateUserEmail(13, "new_benoit@gmail.com");
+
+        Main.closeEntityMananger();
     }
 }

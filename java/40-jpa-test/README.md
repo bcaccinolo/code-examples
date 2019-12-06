@@ -2,6 +2,14 @@
 ## Source : 
 https://www.codejava.net/frameworks/hibernate/java-hibernate-jpa-annotations-tutorial-for-beginners
 
+## Notes
+
+- it works fine in IDE and in console 
+`
+mvn clean package
+java -jar target/HibernateJPABeginner-1.0-SNAPSHOT-jar-with-dependencies.jar
+`
+
 ## DB commands
 Let's get a db
 `

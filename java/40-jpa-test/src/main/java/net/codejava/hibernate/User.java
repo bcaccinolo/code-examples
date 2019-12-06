@@ -9,14 +9,15 @@ import javax.persistence.*;
 @Entity
 @Table(name = "users")
 public class User {
-    private Integer id;
+
+    @Column(name = "USER_ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id private Integer id;
+
     private String fullname;
     private String email;
     private String password;
 
-    @Column(name = "USER_ID")
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
         return id;
     }
