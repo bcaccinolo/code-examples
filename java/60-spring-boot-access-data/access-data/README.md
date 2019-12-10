@@ -2,6 +2,12 @@
 ## Source : 
 https://spring.io/guides/gs/accessing-data-mysql/
 
+## Run tess
+
+`
+mvn surefire:test
+`
+
 ## Notes
 
 ## DB commands
