@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping(name = "/demo")
+@RequestMapping(path = "/demo")
 public class UserController {
     @Autowired // will automatically instantiate the repository from the interface
     private UserRepository userRepository;
