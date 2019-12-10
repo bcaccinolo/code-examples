@@ -1,6 +1,6 @@
-package org.qbeek;
+package org.qbeek.accessingdata;
 
-import org.qbeek.accessingdata.UserRepository;
+import org.qbeek.User;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
