@@ -1,6 +1,4 @@
-package org.qbeek.accessingdata;
-
-import org.qbeek.User;
+package org.qbeek;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,7 +23,7 @@ public class UserController {
         return "Saved";
     }
 
-    @GetMapping(path = "all")
+    @GetMapping(path = "/all")
     public @ResponseBody Iterable<User> getAllUsers() {
         return userRepository.findAll();
     }

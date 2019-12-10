@@ -1,4 +1,4 @@
-package org.qbeek.accessingdata;
+package org.qbeek;
 
 import org.springframework.data.repository.CrudRepository;
 
