@@ -17,6 +17,12 @@ public class App
     public CommandLineRunner dumpSomeCode() {
         return (args) -> {
             System.out.println("🔥 coucou le monde");
+
+            Address address = new Address("rue des champs Elysées", "Paris");
+            Company company = new Company("bigCorp", address);
+            System.out.println(company);
+
+            System.out.println("🔥 coucou le monde");
         };
     }
 }
