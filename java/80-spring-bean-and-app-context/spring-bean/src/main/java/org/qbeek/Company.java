@@ -1,11 +1,14 @@
 package org.qbeek;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Company {
     private String name;
     private Address address;
 
-    public Company(String name, Address address) {
-        this.name = name;
+    public Company(Address address) {
+        this.name = "";
         this.address = address;
     }
 
