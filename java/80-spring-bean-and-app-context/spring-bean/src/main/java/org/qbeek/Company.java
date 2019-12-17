@@ -8,7 +8,7 @@ public class Company {
     private Address address;
 
     public Company(Address address) {
-        this.name = "";
+        this.name = "My Company Name";
         this.address = address;
     }
 
