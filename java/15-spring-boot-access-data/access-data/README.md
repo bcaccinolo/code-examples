@@ -2,7 +2,7 @@
 ## Source : 
 https://spring.io/guides/gs/accessing-data-mysql/
 
-## Run tess
+## Run test
 
 `
 mvn surefire:test

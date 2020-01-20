@@ -1,16 +1,18 @@
-
+# Test flyway 
 
 # Source
-https://www.baeldung.com/database-migrations-with-flyway
-
-# Test flyway migration 
-I use the flyway client and not the maven plugin
+http://www.liquibase.org/documentation/tutorials/sqlite.html
 
 ```
-brew install flyway
+brew install liquibase
 ```
 
-```
-flyway -configFiles=src/main/resources/flyway.properties migrate
+From the resources repository :
+ 
+```bash
+liquibase 
+--classpath=/Users/benoit/.m2/repository/com/h2database/h2/1.4.200/h2-1.4.200.jar 
+update
+
 ```
 
