@@ -1,4 +1,4 @@
-package com.example.springsecurityh2dbv2;
+package com.example.springsecuritymysqldb;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -8,7 +8,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -23,28 +22,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     //@Override
     //protected void configure(HttpSecurity http) throws Exception {
-    //    http.authorizeRequests()
-    //            .anyRequest()
-    //            .authenticated()
-    //            .and()
-    //            .formLogin();
+    //http.authorizeRequests()
+    //        .anyRequest()
+    //        .authenticated()
+    //        .and()
+    //        .formLogin();
     //}
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
-                .passwordEncoder(myPasswordEncoder())
                 .dataSource(dataSource)
-                .withUser(User.withUsername("benoit").password(myPasswordEncoder().encode("pass")).roles("USER"));
+        .withUser(User.withUsername("benoit").password(passwordEncoder().encode("root")).roles("USER"));
     }
 
     @Bean
-    public PasswordEncoder myPasswordEncoder() {
-        return new BCryptPasswordEncoder(11);
+    public PasswordEncoder passwordEncoder() {
+        return NoOpPasswordEncoder.getInstance();
     }
-
-    //@Bean
-    //public PasswordEncoder myPasswordEncoder() {
-    //    return NoOpPasswordEncoder.getInstance();
-    //}
 }

@@ -1,4 +1,4 @@
-package com.example.springsecurityh2dbv2;
+package com.example.springsecuritymysqldb;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
