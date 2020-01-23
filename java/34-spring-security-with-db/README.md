@@ -1,12 +1,19 @@
 
 ## Note
-authentification a partir des users dans la base de données
+Authentification a partir des users dans la base de données
+
+Pour l'instant ça ne fonctionne pas.
+Quelque chose m'échappe... 
 
 ## Todo 
 
+- security should be ok but it doesn't work.
+  the logging doesn't work either ...
+  >> fix logging 
+                                                                                      
 - ok install flyway
-- >> install 1er migration users ...
-- install des datas
+- ok install 1er migration users ...
+- ok install des datas
 
 ## Run from command line 
 
@@ -53,13 +60,11 @@ docker container stop $DB_CONTAINER_NAME
 
 ### Connect to the db
 `
- mycli -u root -p root -h $DB_IP $DB_NAME
+mycli -u root -p root -h $DB_IP $DB_NAME
 `
 
 ### Flyway : Fill the db 
 `
 flyway -configFiles=src/main/resources/application.properties migrate
 `
-
-
 
