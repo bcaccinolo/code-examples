@@ -21,23 +21,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource dataSource;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests()
-                .anyRequest()
-                .authenticated()
-                .and()
-                .formLogin();
-    }
+    //@Override
+    //protected void configure(HttpSecurity http) throws Exception {
+    //    http.authorizeRequests()
+    //            .anyRequest()
+    //            .authenticated()
+    //            .and()
+    //            .formLogin();
+    //}
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
-                .dataSource(dataSource);
+                .passwordEncoder(myPasswordEncoder())
+                .dataSource(dataSource)
+                .withUser(User.withUsername("benoit").password(myPasswordEncoder().encode("pass")).roles("USER"));
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return NoOpPasswordEncoder.getInstance();
+    public PasswordEncoder myPasswordEncoder() {
+        return new BCryptPasswordEncoder(11);
     }
+
+    //@Bean
+    //public PasswordEncoder myPasswordEncoder() {
+    //    return NoOpPasswordEncoder.getInstance();
+    //}
 }

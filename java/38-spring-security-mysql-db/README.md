@@ -2,7 +2,9 @@
 https://www.baeldung.com/spring-security-jdbc-authentication
 
 ## Retour
-Authentification avec un mysql 
+Authentification avec un mysql.
+ 
+Ca ne marche pas...
 
 ## Base de données
 
@@ -21,4 +23,3 @@ SQL client
 ```shell script
 mycli -h $MYSQL_ADDRESS -u root -p pass  $MYSQL_DATABASE
 ```
-

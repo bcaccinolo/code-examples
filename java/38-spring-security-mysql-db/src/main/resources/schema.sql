@@ -1,3 +1,5 @@
+drop table if exists authorities;
+drop table if exists users;
 
 CREATE table users (
   username VARCHAR(50) NOT NULL,
