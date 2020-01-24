@@ -1,5 +1,8 @@
 
 # Retour
+Ca fonctionne maintenant :P
+le problème venait du fait que 'application.properties' ne prend pas.
+
 ne fonctionne pas...
 j'ai un problème avec l'accès à la console H2 http://localhost:8080/h2-console
 je vais donc faire un exemple avec un H2 bien configuré pour pouvoir continuer.

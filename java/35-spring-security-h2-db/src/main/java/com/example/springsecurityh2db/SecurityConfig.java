@@ -14,10 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import javax.sql.DataSource;
 
 @Configuration
-//@EnableWebSecurity
+@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-
-    // Désactivation de la sécurité pour voir si cela permet d'accéder à la console H2.
 
     @Autowired
     private DataSource dataSource;
@@ -38,13 +36,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeRequests()
-                //.antMatchers("/h2-console/**")
-                //.permitAll()
+                .antMatchers("/h2-console/**")
+                .permitAll()
                 .anyRequest()
-                .permitAll();
-                //.authenticated()
-                //.and()
-                //.formLogin();
+                .authenticated()
+                .and()
+                .formLogin();
 
         httpSecurity.csrf()
                 .ignoringAntMatchers("/h2-console/**");
