@@ -2,13 +2,13 @@
 https://www.baeldung.com/spring-security-jdbc-authentication
 
 ## Retour
-Authentification avec un mysql.
+Authentification with mysql
  
-Ca ne marche pas...
+It's fixed now. 
 
-## Base de données
+## Database
 
-Les variables d'env sont dans le `.env`
+Env var are in `.env`
 
 ```shell script
 docker run -p 3306:3306 -d --rm --name $MYSQL_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=pass -e MYSQL_DATABASE=$MYSQL_DATABASE mysql:8
