@@ -1,26 +1,28 @@
 package com.example.springsecurityuserdetailsservice;
 
-import org.springframework.security.core.userdetails.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
-public class UserDetailsServiceImpl implements UserDetailsService {
+public class UserService implements UserDetailsService {
+
+    @Autowired
+    UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+        Optional<User> user = userRepository.findByUsername(s);
 
-        System.out.println("🔥 in the user details service");
-
-        if (s.equals("marc")) {
-            return User.withUsername("marc")
-                    .password("root")
-                    .roles("USER")
-                    .build();
+        if (user.isPresent()) {
+            return user.get();
         } else {
-            return null;
+            throw new UsernameNotFoundException("User not found");
         }
+
     }
 }

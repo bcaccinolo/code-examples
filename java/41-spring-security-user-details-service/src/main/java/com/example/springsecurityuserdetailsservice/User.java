@@ -5,11 +5,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.management.relation.Role;
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 @Entity
 @Data
@@ -24,7 +21,7 @@ public class User implements UserDetails {
     private String password;
 
     @Override
-    public Collection<GrantedAuthority> getAuthorities() {
+    public ArrayList<GrantedAuthority> getAuthorities() {
         ArrayList<GrantedAuthority> list = new ArrayList<>();
         list.add(new SimpleGrantedAuthority("USER"));
         return list;
