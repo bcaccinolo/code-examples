@@ -9,6 +9,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
+@Table(name = "users")
 @Data
 public class User implements UserDetails {
 
