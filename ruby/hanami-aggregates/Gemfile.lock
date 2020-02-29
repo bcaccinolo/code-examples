@@ -130,7 +130,7 @@ GEM
       activesupport (= 4.2.9)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    rake (12.3.1)
+    rake (13.0.1)
     rom (3.3.3)
       concurrent-ruby (~> 1.0)
       dry-core (~> 0.3)
