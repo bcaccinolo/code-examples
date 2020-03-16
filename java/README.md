@@ -3,7 +3,7 @@
 
 # . cat ~/dev/code-examples/java/README.md
 
-cp ~/dev/code-examples/java/60-spring-boot-access-data/access-data/README.md .
-cp ~/dev/code-examples/java/60-spring-boot-access-data/access-data/.gitignore .
-cp ~/dev/code-examples/java/60-spring-boot-access-data/access-data/pom.xml .
+cp ~/dev/code-examples/java/39-use-pwd-encoder/access-data/README.md .
+cp ~/dev/code-examples/java/39-use-pwd-encoder/access-data/.gitignore .
+cp ~/dev/code-examples/java/39-use-pwd-encoder/access-data/pom.xml .
 
