@@ -1,5 +1,4 @@
 
-
 class Hello {
 	public static void main(String[] args) {
 
@@ -7,8 +6,7 @@ class Hello {
 	
 		int y = 2;
 		
-		   if(y<10) System.out.println("Too Low");
+		if(y<10) System.out.println("Too Low");
 		else System.out.println("Just right");
-
 	}
 }
