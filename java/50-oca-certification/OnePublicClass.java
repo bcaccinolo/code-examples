@@ -16,10 +16,10 @@ public class OnePublicClass {
 
 }
 
-// not a publc class
+// not a publc class, a default package private
 class Hello {}
 
-// not a public class
+// not a public class, a default package private
 class World {}
 
 

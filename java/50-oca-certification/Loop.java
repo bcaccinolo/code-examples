@@ -1,5 +1,5 @@
 
-public class Test {
+public class Loop {
 
      public static void main(String[] args) {
      int count = 0;
