@@ -1,5 +1,7 @@
 package org.qbeek;
 
+import java.util.Properties;
+
 /**
  * Hello world!
  *
@@ -10,4 +12,5 @@ public class App
     {
         MyConsumer.launch();
     }
+
 }
