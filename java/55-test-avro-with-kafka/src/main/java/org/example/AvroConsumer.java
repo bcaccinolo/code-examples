@@ -9,6 +9,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.time.Duration;
+import java.util.Collections;
 import java.util.Properties;
 
 public class AvroConsumer {
@@ -23,6 +24,7 @@ public class AvroConsumer {
         properties.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://127.0.0.1:8081");
 
         KafkaConsumer<String, Customer> kafkaConsumer = new KafkaConsumer<String, Customer>(properties);
+        kafkaConsumer.subscribe(Collections.singleton("topic-avro"));
 
         while (true) {
             Duration timeout = Duration.ofMillis(100);
