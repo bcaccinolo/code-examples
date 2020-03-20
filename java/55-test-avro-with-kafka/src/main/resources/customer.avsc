@@ -1,5 +1,6 @@
-{"namespace": "org.example.wait",
+{
   "type": "record",
+  "namespace": "org.example.wait",
   "name": "Customer",
   "fields": [
     {"name": "name", "type": "string"},

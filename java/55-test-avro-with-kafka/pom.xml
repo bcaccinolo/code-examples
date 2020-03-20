@@ -47,13 +47,14 @@
                 <version>1.9.2</version>
                 <executions>
                     <execution>
-                        <phase>generate-sources</phase>
                         <goals>
                             <goal>schema</goal>
                         </goals>
                         <configuration>
                             <sourceDirectory>${project.basedir}/src/main/resources/</sourceDirectory>
-<!--                            <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>-->
+                            <imports>
+                                <import>${project.basedir}/src/main/resources/address.avsc</import>
+                            </imports>
                         </configuration>
                     </execution>
                 </executions>

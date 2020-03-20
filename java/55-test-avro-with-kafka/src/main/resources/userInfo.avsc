@@ -1,7 +1,8 @@
+
 {
   "type" : "record",
-  "name" : "userInfo",
   "namespace" : "my.example",
+  "name" : "userInfo",
   "fields" : [{"name" : "username",
     "type" : "string",
     "default" : "NONE"},
@@ -19,30 +20,7 @@
       "default" : "NONE"},
 
     {"name" : "address",
-      "type" : {
-        "type" : "record",
-        "name" : "mailing_address",
-        "fields" : [
-          {"name" : "street",
-            "type" : "string",
-            "default" : "NONE"},
-
-          {"name" : "city",
-            "type" : "string",
-            "default" : "NONE"},
-
-          {"name" : "state_prov",
-            "type" : "string",
-            "default" : "NONE"},
-
-          {"name" : "country",
-            "type" : "string",
-            "default" : "NONE"},
-
-          {"name" : "zip",
-            "type" : "string",
-            "default" : "NONE"}
-        ]},
+      "type" : "address",
       "default" : {}
     }
   ]
