@@ -1,0 +1,25 @@
+{
+  "type" : "record",
+  "namespace" : "my.example",
+  "name" : "address",
+  "fields" : [
+    {"name" : "street",
+      "type" : "string",
+      "default" : "NONE"},
+
+    {"name" : "city",
+      "type" : "string",
+      "default" : "NONE"},
+
+    {"name" : "state_prov",
+      "type" : "string",
+      "default" : "NONE"},
+
+    {"name" : "country",
+      "type" : "string",
+      "default" : "NONE"},
+
+    {"name" : "zip",
+      "type" : "string",
+      "default" : "NONE"}
+  ]}
