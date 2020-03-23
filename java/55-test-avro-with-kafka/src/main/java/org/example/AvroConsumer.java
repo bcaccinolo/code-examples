@@ -23,7 +23,7 @@ public class AvroConsumer {
         properties.put(ConsumerConfig.GROUP_ID_CONFIG, "group-avro");
         properties.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://127.0.0.1:8081");
 
-        KafkaConsumer<String, Customer> kafkaConsumer = new KafkaConsumer<String, Customer>(properties);
+        KafkaConsumer<String, Customer> kafkaConsumer = new KafkaConsumer<>(properties);
         kafkaConsumer.subscribe(Collections.singleton("topic-avro"));
 
         while (true) {
@@ -31,6 +31,7 @@ public class AvroConsumer {
             ConsumerRecords<String, Customer> consumerRecords = kafkaConsumer.poll(timeout);
 
             for(ConsumerRecord<String, Customer> record : consumerRecords) {
+                System.out.printf("un customer");
                 System.out.println(record.toString());
             }
         }
