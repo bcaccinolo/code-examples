@@ -17,6 +17,12 @@ public class KafkaController {
     @GetMapping(value = "/publish")
 //    public void sendMessageToKafkaTopic(@RequestParam("name") String name, @RequestParam("age") Integer age) {
     public void sendMessageToKafkaTopic() {
-        this.producer.sendMessage(new User("benoit", 13));
+
+        User user = User.newBuilder()
+                .setName("name")
+                .setAge(12)
+                .build();
+
+        this.producer.sendMessage(user);
     }
 }
