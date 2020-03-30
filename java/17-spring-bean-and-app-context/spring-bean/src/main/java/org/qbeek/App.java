@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
+import java.util.Arrays;
 import java.util.List;
 
 @SpringBootApplication
@@ -29,7 +30,6 @@ public class App
     public CommandLineRunner dumpSomeCode() {
         return (args) -> {
             System.out.println("🔥 coucou le monde");
-
 
 //            -----------------------------------------------------------------
 //            Building a new Application context
@@ -53,10 +53,17 @@ public class App
 //            -----------------------------------------------------------------
 //            Lister les noms des Beans présents
 //            -----------------------------------------------------------------
-            String[] beanList = applicationContext.getBeanDefinitionNames();
-            for (String beanName : beanList) {
-                System.out.println(beanName);
-            }
+
+            // cool solutions
+            Arrays.stream(applicationContext.getBeanDefinitionNames())
+                    .map(name -> applicationContext.getBean(name).getClass().getName())
+                    .sorted()
+                    .forEach(System.out::println);
+
+            //String[] beanList = applicationContext.getBeanDefinitionNames();
+            //for (String beanName : beanList) {
+            //    System.out.println(beanName);
+            //}
 
             System.out.println("🔥 coucou le monde");
         };
