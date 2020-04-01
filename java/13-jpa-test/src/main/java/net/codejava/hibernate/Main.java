@@ -44,7 +44,13 @@ public class Main {
         Main.initEntityManager();
 
         Main.createUser("benoit@gmail.com", "Benoit C.", "my secret pass");
-        Main.updateUserEmail(13, "new_benoit@gmail.com");
+
+        // Running this a second time will throw an exception
+        // java.sql.SQLIntegrityConstraintViolationException: Duplicate entry
+        Main.createUser("benoit@gmail.com", "Benoit C.", "my secret pass");
+
+        // Will throw a NullPointerException
+        //  Main.updateUserEmail(13, "new_benoit@gmail.com"); // will fail
 
         Main.closeEntityMananger();
     }
