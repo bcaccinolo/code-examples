@@ -18,7 +18,10 @@ public class User {
     private Integer id;
 
     private String fullname;
+
+    // Create a UNICITY constraint
+    @Column(unique = true)
     private String email;
+
     private String password;
-    private String coucou;
 }
