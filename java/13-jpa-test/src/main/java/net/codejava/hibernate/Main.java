@@ -44,7 +44,8 @@ public class Main {
         Main.initEntityManager();
 
         Main.createUser("benoit@gmail.com", "Benoit C.", "my secret pass");
-        Main.updateUserEmail(13, "new_benoit@gmail.com");
+
+//        Main.updateUserEmail(13, "new_benoit@gmail.com"); // will fail
 
         Main.closeEntityMananger();
     }
