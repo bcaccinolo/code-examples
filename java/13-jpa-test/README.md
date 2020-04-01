@@ -31,8 +31,12 @@ docker run -d --rm --name $DB_CONTAINER_NAME -e MYSQL_ROOT_PASSWORD=root -e MYSQ
 `
 
 ### Get ip to connect
+
+<!-- 🐙🐙😂 Update the DATABASE IP 😂 in the persistence.xml -->
+<!-- 🐙🐙😂 Update the DATABASE IP 😂 in the persistence.xml -->
+<!-- 🐙🐙😂 Update the DATABASE IP 😂 in the persistence.xml -->
 `
-DB_IP=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $DB_CONTAINER_NAME`
+DB_IP=`docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db-test-hibernate`
 echo $DB_IP
 `
 
