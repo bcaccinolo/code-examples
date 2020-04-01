@@ -1,6 +1,6 @@
 
-## Source : 
-https://www.codejava.net/frameworks/hibernate/java-hibernate-jpa-annotations-tutorial-for-beginners
+Simple DB connection for Mysql or H2. 
+And test unique constraints.
 
 ## Notes
 

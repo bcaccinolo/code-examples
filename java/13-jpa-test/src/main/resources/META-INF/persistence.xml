@@ -4,7 +4,6 @@
              version="2.0">
 
     <persistence-unit name="UsersDB">
-
         <description>JpaForBeginners</description>
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
@@ -25,6 +24,24 @@
             <property name="hibernate.format_sql" value="true"/>
 
             <!--            <property name="hibernate.flushMode" value="FLUSH_AUTO" />-->
+        </properties>
+    </persistence-unit>
+
+    <persistence-unit name="H2">
+        <description>H2 persistence settings</description>
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <properties>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+            <property name="hibernate.connection.driver_class" value="org.h2.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:h2:mem:testdb" />
+            <property name="hibernate.connection.user" value="sa" />
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.flushMode" value="FLUSH_AUTO" />
+
+            <property name="hibernate.hbm2ddl.auto" value="create" />
         </properties>
     </persistence-unit>
 

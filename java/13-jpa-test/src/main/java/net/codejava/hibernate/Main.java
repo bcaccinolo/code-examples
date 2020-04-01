@@ -5,11 +5,16 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 public class Main {
-    static EntityManagerFactory factory = Persistence.createEntityManagerFactory("UsersDB");
-    static EntityManager entityManager = factory.createEntityManager();
+    static EntityManagerFactory factory;
+    static EntityManager entityManager;
 
     static void initEntityManager() {
-        Main.factory = Persistence.createEntityManagerFactory("UsersDB");
+        // CONFIGURATION FOR MYSQL
+        //Main.factory = Persistence.createEntityManagerFactory("UsersDB");
+
+        // CONFIGURATIO FOR H2 DATABASE
+        Main.factory = Persistence.createEntityManagerFactory("H2");
+
         Main.entityManager = factory.createEntityManager();
     }
 
