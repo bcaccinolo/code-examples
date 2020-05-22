@@ -14,7 +14,7 @@ class Overloading {
 
     static void hello(long i, int j) {
         i = 4;
-        System.out.println("one long and one int" + i);
+        System.out.println("one long and one int: " + i);
     }
 
     static void hello(long i, long j) {
