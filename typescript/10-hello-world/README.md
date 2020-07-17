@@ -5,7 +5,7 @@
 tsc hello.ts
 ```
 
-## Launch
+## LAUNCH
 ```
 node hello.js
 ```
