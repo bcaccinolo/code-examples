@@ -13,6 +13,8 @@
                  [compojure "1.6.1"]
                  [http-kit "2.3.0"]
                  [lynxeyes/dotenv "1.0.2"]
+                 [honeysql "1.0.444"]
+                 [seancorfield/next.jdbc "1.1.582"]
                  ]
   :main ^:skip-aot api.core
   :target-path "target/%s"
