@@ -1,14 +1,13 @@
 (ns api.routes
   (:require
-   [clojure.pprint :as pp]
+   [clojure.pprint :refer [pprint]]
    [ring.util.response :refer [response]]
    )
   )
 
 (defn echo-route [req]
-
-  (pp/pprint req)
-  (pp/pprint (dissoc req :async-channel))
+  (pprint req)
+  (pprint (dissoc req :async-channel))
 
   {:status 200
    :headers {"Content-Type" "application/json"}
