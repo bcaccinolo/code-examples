@@ -1,5 +1,6 @@
 (ns hello.core
-  (:use [hello.hellos :as hh])
+  (:require [hello.hellos :as hh])
+  ;; (:use [hello.hellos :as hh])
   (:gen-class))
 
 (def scenes [{:subject  "Frankie"
