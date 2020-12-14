@@ -15,6 +15,32 @@
               :action   "tries"
               :object   "a new conditioner"}])
 
+(print "coucou")
+
+(require '[clojure.string :as str])
+
+
+
+(str/blank? "")
+(def l (str/split s #", "))
+(def ff #(str "\"" % "\""))
+
+
+(def ll (map ff l))
+(str/join ", " ll)
+
+(print (ff "coucou"))
+
+(def s "Belmondo, Gabin, Luchini")
+
+(->> s
+     (#(str/split % #", "))
+     (map #(str "\"" % "\""))
+     (str/join ", ")
+     print
+     )
+
+
 (defn people-in-scenes [scenes]
   "get subjects"
   (->> scenes
