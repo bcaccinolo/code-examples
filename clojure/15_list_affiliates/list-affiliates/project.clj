@@ -7,7 +7,10 @@
                  [org.clojure/java.jdbc "0.7.10"]
                  [org.postgresql/postgresql "42.1.4"]
                  [honeysql "1.0.444"]
-                 [seancorfield/next.jdbc "1.1.582"]]
+                 [seancorfield/next.jdbc "1.1.582"]
+
+                 [ring "1.8.2"]
+                 [ring/ring-json "0.5.0"]]
   
   :main ^:skip-aot list-affiliates.core
   :target-path "target/%s"

@@ -1,6 +1,10 @@
 (ns list-affiliates.core
+  
+  (:require
+   [ring.adapter.jetty :refer [run-jetty]])
+  
   (:gen-class))
-
+  
 (require '[next.jdbc :as jdbc])
 (require '[honeysql.helpers :refer :all :as helpers])
 (require '[honeysql.core :as sql])
@@ -23,10 +27,23 @@
 
 (jdbc/execute! conn sql)
 
+(defn handler [request]
+
+  (println request)
+
+  {:status 200
+   :headers {"Content-Type" "text/html"}
+   :body "hello world"})
+
+
 (defn -main
   "I don't do a whole lot ... yet."
   [& args]
 
   (println (jdbc/execute! conn sql))
+  
+  (run-jetty handler {:port 3000})
+  
+  )
 
-  (println "Hello, World!"))
+
